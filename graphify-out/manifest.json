@@ -1,0 +1,942 @@
+{
+  "/home/linuxbrew/voicebox/app/vite.config.ts": {
+    "mtime": 1779992390.5725832,
+    "ast_hash": "1bb7a05146e92f139b6bf545bbf9292d",
+    "semantic_hash": "1bb7a05146e92f139b6bf545bbf9292d"
+  },
+  "/home/linuxbrew/voicebox/app/components.json": {
+    "mtime": 1779972076.2956946,
+    "ast_hash": "9f8dc0a570ea1b7f0d1d3ebf39bc2935",
+    "semantic_hash": "9f8dc0a570ea1b7f0d1d3ebf39bc2935"
+  },
+  "/home/linuxbrew/voicebox/app/tsconfig.json": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "df9af13be8f2b7556ca1eb4217f7fee5",
+    "semantic_hash": "df9af13be8f2b7556ca1eb4217f7fee5"
+  },
+  "/home/linuxbrew/voicebox/app/package.json": {
+    "mtime": 1779972076.2956946,
+    "ast_hash": "621463e81df255eade060f5c4dbc21e2",
+    "semantic_hash": "621463e81df255eade060f5c4dbc21e2"
+  },
+  "/home/linuxbrew/voicebox/app/tsconfig.node.json": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "812a6773baa3cb825b09e7a478def19e",
+    "semantic_hash": "812a6773baa3cb825b09e7a478def19e"
+  },
+  "/home/linuxbrew/voicebox/app/plugins/changelog.ts": {
+    "mtime": 1779972076.2956946,
+    "ast_hash": "04eedc910fbe88b212fa6703467bb34d",
+    "semantic_hash": "04eedc910fbe88b212fa6703467bb34d"
+  },
+  "/home/linuxbrew/voicebox/app/src/App.tsx": {
+    "mtime": 1779972076.2956946,
+    "ast_hash": "e694a494d8fa36d3a7af6535b0aafc2c",
+    "semantic_hash": "e694a494d8fa36d3a7af6535b0aafc2c"
+  },
+  "/home/linuxbrew/voicebox/app/src/main.tsx": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "beb59521e1c47705634a9d66becae7cd",
+    "semantic_hash": "beb59521e1c47705634a9d66becae7cd"
+  },
+  "/home/linuxbrew/voicebox/app/src/global.d.ts": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "c987c50fe346018190d971ec54e690fe",
+    "semantic_hash": "c987c50fe346018190d971ec54e690fe"
+  },
+  "/home/linuxbrew/voicebox/app/src/router.tsx": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "b83cb8b9dcc710d11b9ebcfef6deeb39",
+    "semantic_hash": "b83cb8b9dcc710d11b9ebcfef6deeb39"
+  },
+  "/home/linuxbrew/voicebox/app/src/platform/PlatformContext.tsx": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "5c355c6e69b7f90bea3fcb208aff42f0",
+    "semantic_hash": "5c355c6e69b7f90bea3fcb208aff42f0"
+  },
+  "/home/linuxbrew/voicebox/app/src/platform/types.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "500c26b93574c3ac7d657e03ff80ed98",
+    "semantic_hash": "500c26b93574c3ac7d657e03ff80ed98"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/storyStore.ts": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "78b50728bedfc6591e5393cadd24fed6",
+    "semantic_hash": "78b50728bedfc6591e5393cadd24fed6"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/audioChannelStore.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "351096613952221babe6f0bf9c43b9bb",
+    "semantic_hash": "351096613952221babe6f0bf9c43b9bb"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/generationStore.ts": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "0db0bbc5b510e425181b0e2262fccb8b",
+    "semantic_hash": "0db0bbc5b510e425181b0e2262fccb8b"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/logStore.ts": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "06ec84e1cf975262b90cefe4e020c50a",
+    "semantic_hash": "06ec84e1cf975262b90cefe4e020c50a"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/effectsStore.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "a7d5763f8def110637c5df7064391e75",
+    "semantic_hash": "a7d5763f8def110637c5df7064391e75"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/uiStore.ts": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "443364744c71382c0a053617c52b6e8c",
+    "semantic_hash": "443364744c71382c0a053617c52b6e8c"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/playerStore.ts": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "fc3f12249f82897ae4f460ab37e9311d",
+    "semantic_hash": "fc3f12249f82897ae4f460ab37e9311d"
+  },
+  "/home/linuxbrew/voicebox/app/src/stores/serverStore.ts": {
+    "mtime": 1779991383.892636,
+    "ast_hash": "f997dd22b0b78515f6e2b99aa4e30229",
+    "semantic_hash": "f997dd22b0b78515f6e2b99aa4e30229"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/queryClient.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "b9fc4943151c557dfda56ab477e57621",
+    "semantic_hash": "b9fc4943151c557dfda56ab477e57621"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/sponsors.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "28cddec06d0b6106061437ad36b11b51",
+    "semantic_hash": "28cddec06d0b6106061437ad36b11b51"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/constants/ui.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "05c77b88cab96dd3ed466ccbae7efbcd",
+    "semantic_hash": "05c77b88cab96dd3ed466ccbae7efbcd"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/constants/languages.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "0a63250264bd55245573caa659aba546",
+    "semantic_hash": "0a63250264bd55245573caa659aba546"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useAudioPlayer.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "ed38f449a55f55df8bb6fa805fdf0f1e",
+    "semantic_hash": "ed38f449a55f55df8bb6fa805fdf0f1e"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useProfiles.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "a37bfc49ba83ede852d40354e925ed52",
+    "semantic_hash": "a37bfc49ba83ede852d40354e925ed52"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useChordSync.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "855701b79b804b5e3d0a86680c661fc5",
+    "semantic_hash": "855701b79b804b5e3d0a86680c661fc5"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useGenerationProgress.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "ab11ccd3d3ba54fc5a40bb9d0067caed",
+    "semantic_hash": "ab11ccd3d3ba54fc5a40bb9d0067caed"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useGenerationForm.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "76faae6584a9ac6f88ea00c1f97b0827",
+    "semantic_hash": "76faae6584a9ac6f88ea00c1f97b0827"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useCaptureRecordingSession.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "636e0ab9bc11b89b04c9fa5cd511e78d",
+    "semantic_hash": "636e0ab9bc11b89b04c9fa5cd511e78d"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useStoryPlayback.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "72a4a09e13412305234971b5cbe1d27f",
+    "semantic_hash": "72a4a09e13412305234971b5cbe1d27f"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useRestoreActiveTasks.tsx": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "dda62d5c58a04146b3205b4c7aaafa5a",
+    "semantic_hash": "dda62d5c58a04146b3205b4c7aaafa5a"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useDictationReadiness.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "93b4a214aa39a6e14d16143ae136c3bc",
+    "semantic_hash": "93b4a214aa39a6e14d16143ae136c3bc"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useGeneration.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "37c5211e3b40f6eaf902d05521042e3c",
+    "semantic_hash": "37c5211e3b40f6eaf902d05521042e3c"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useSettings.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "6b45de0ff1b52070067ace39841a157c",
+    "semantic_hash": "6b45de0ff1b52070067ace39841a157c"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useMCPBindings.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "9ede9f5c3b010f3398cd10511d0b3ac3",
+    "semantic_hash": "9ede9f5c3b010f3398cd10511d0b3ac3"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useServer.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "ca489bb98617aeab8152eda14f5dca9c",
+    "semantic_hash": "ca489bb98617aeab8152eda14f5dca9c"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useTranscription.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "d8101d330fc8441a54f0677054540d79",
+    "semantic_hash": "d8101d330fc8441a54f0677054540d79"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useSystemAudioCapture.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "41efe1c8189c226b93df79800e433a30",
+    "semantic_hash": "41efe1c8189c226b93df79800e433a30"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useStories.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "fcff78608f853bc797edb6ecb78be9b4",
+    "semantic_hash": "fcff78608f853bc797edb6ecb78be9b4"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useHistory.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "8517895501c759de60edb9179f3ffde2",
+    "semantic_hash": "8517895501c759de60edb9179f3ffde2"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useAudioRecording.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "bdc6eff5150fc1d39da7d490076b34ac",
+    "semantic_hash": "bdc6eff5150fc1d39da7d490076b34ac"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/hooks/useModelDownloadToast.tsx": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "fb79f739b24939585722d9cf2514f245",
+    "semantic_hash": "fb79f739b24939585722d9cf2514f245"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/client.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "d0bd8349003bd07fcab071a88f66d2be",
+    "semantic_hash": "d0bd8349003bd07fcab071a88f66d2be"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/types.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "18fe34a728b9fc555e78e148347ffcb3",
+    "semantic_hash": "18fe34a728b9fc555e78e148347ffcb3"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/index.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "fdfc9dee3d36dd67242201cd78651291",
+    "semantic_hash": "fdfc9dee3d36dd67242201cd78651291"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/HistoryResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "ef02e27ea644feb343b07766741df912",
+    "semantic_hash": "ef02e27ea644feb343b07766741df912"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/HTTPValidationError.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "01ab56d124772695f6d53dfb0b0f18b4",
+    "semantic_hash": "01ab56d124772695f6d53dfb0b0f18b4"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/TranscriptionResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "4962c510bf513901457cbfd84d938b82",
+    "semantic_hash": "4962c510bf513901457cbfd84d938b82"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/HealthResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "6dbd928e8ac486231b2a8ad8b847958b",
+    "semantic_hash": "6dbd928e8ac486231b2a8ad8b847958b"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/ModelStatusListResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "fc9a56c62ae6b6a3348fd189ce672f4e",
+    "semantic_hash": "fc9a56c62ae6b6a3348fd189ce672f4e"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/VoiceProfileCreate.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "59bec40e81aabf2c3b04db1fab8f5b24",
+    "semantic_hash": "59bec40e81aabf2c3b04db1fab8f5b24"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/GenerationRequest.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "9af6554949fc3f505cf41a9abbd671ed",
+    "semantic_hash": "9af6554949fc3f505cf41a9abbd671ed"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/ProfileSampleResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "017b05432141aaefcfc2255464ec42bd",
+    "semantic_hash": "017b05432141aaefcfc2255464ec42bd"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/Body_add_profile_sample_profiles__profile_id__samples_post.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "b87e089ac7da1efa52d56554be96d69f",
+    "semantic_hash": "b87e089ac7da1efa52d56554be96d69f"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/ValidationError.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "410c18b143c3c321bcd41bc67319bf09",
+    "semantic_hash": "410c18b143c3c321bcd41bc67319bf09"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/ModelStatus.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "61dd695c3aa1b165178023f92f896e69",
+    "semantic_hash": "61dd695c3aa1b165178023f92f896e69"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/Body_transcribe_audio_transcribe_post.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "905f61056eac30aaaf353446126c1140",
+    "semantic_hash": "905f61056eac30aaaf353446126c1140"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/GenerationResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "080dc0964159c5fa87d2a30ce6fef072",
+    "semantic_hash": "080dc0964159c5fa87d2a30ce6fef072"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/HistoryListResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "2c6ac10ef4b6a8cff0c54c78921905d1",
+    "semantic_hash": "2c6ac10ef4b6a8cff0c54c78921905d1"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/VoiceProfileResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "b9653b77c2ec78867985f018d80bb4a0",
+    "semantic_hash": "b9653b77c2ec78867985f018d80bb4a0"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/models/ModelDownloadRequest.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "97802a71fb7c81f8b51770af70b9fb79",
+    "semantic_hash": "97802a71fb7c81f8b51770af70b9fb79"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/core/CancelablePromise.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "771236ab494de6c162949bc1f8adf9a0",
+    "semantic_hash": "771236ab494de6c162949bc1f8adf9a0"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/core/ApiRequestOptions.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "add1970df819aa3d9b0329421c985d71",
+    "semantic_hash": "add1970df819aa3d9b0329421c985d71"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/core/ApiResult.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "b9f97ffbe97480b5ca2961260dea08f7",
+    "semantic_hash": "b9f97ffbe97480b5ca2961260dea08f7"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/core/request.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "17149e48c4ba5d3adbf26664eaffcb82",
+    "semantic_hash": "17149e48c4ba5d3adbf26664eaffcb82"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/core/ApiError.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "21a4812bb5e7b72c868019cf2c5e7879",
+    "semantic_hash": "21a4812bb5e7b72c868019cf2c5e7879"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/core/OpenAPI.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "cb131a90997fcb33af43a4c744b8b0f7",
+    "semantic_hash": "cb131a90997fcb33af43a4c744b8b0f7"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$HistoryListResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "cacc2c57f03fa90f1cdd4c49a55048d9",
+    "semantic_hash": "cacc2c57f03fa90f1cdd4c49a55048d9"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$Body_add_profile_sample_profiles__profile_id__samples_post.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "892a29bcd938ed99806c261b65375a0f",
+    "semantic_hash": "892a29bcd938ed99806c261b65375a0f"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$HealthResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "fb8562167bc2bc2a42445f95fb5fc043",
+    "semantic_hash": "fb8562167bc2bc2a42445f95fb5fc043"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$ModelStatus.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "45c1c482a81cff9e8d1d728f6136c8bd",
+    "semantic_hash": "45c1c482a81cff9e8d1d728f6136c8bd"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$HTTPValidationError.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "7bc1a85998ef6016d202a29a8829630b",
+    "semantic_hash": "7bc1a85998ef6016d202a29a8829630b"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$GenerationResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "5c754b4e0d49732f89b01b087d9a9519",
+    "semantic_hash": "5c754b4e0d49732f89b01b087d9a9519"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$ModelStatusListResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "0ab888b3a0c32a1490ce78fe5be6ed0a",
+    "semantic_hash": "0ab888b3a0c32a1490ce78fe5be6ed0a"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$VoiceProfileResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "1b0a2e4a1e22462b1c1dc72818cd706f",
+    "semantic_hash": "1b0a2e4a1e22462b1c1dc72818cd706f"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$Body_transcribe_audio_transcribe_post.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "852c83d7f112d675cc131efe1ba05750",
+    "semantic_hash": "852c83d7f112d675cc131efe1ba05750"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$ValidationError.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "745b637a9956a89b628c8db7930d8aaa",
+    "semantic_hash": "745b637a9956a89b628c8db7930d8aaa"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$TranscriptionResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "3700d5f4419ac18315b4be46a22fbf73",
+    "semantic_hash": "3700d5f4419ac18315b4be46a22fbf73"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$ModelDownloadRequest.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "df08d55202d1574396389b967fd4b36e",
+    "semantic_hash": "df08d55202d1574396389b967fd4b36e"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$VoiceProfileCreate.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "5a1b91fcbcf5704d2eaa7996511c7447",
+    "semantic_hash": "5a1b91fcbcf5704d2eaa7996511c7447"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$HistoryResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "8968c2b23d395fc49a1672b17e97c9f3",
+    "semantic_hash": "8968c2b23d395fc49a1672b17e97c9f3"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$ProfileSampleResponse.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "e0754b7f4cfa2709160078bfe012c5c2",
+    "semantic_hash": "e0754b7f4cfa2709160078bfe012c5c2"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/schemas/$GenerationRequest.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "1a6f478cc5fc673ab65a49fb0af0825e",
+    "semantic_hash": "1a6f478cc5fc673ab65a49fb0af0825e"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/api/services/DefaultService.ts": {
+    "mtime": 1779972076.322695,
+    "ast_hash": "14e1081310b55d7dc0c82d52c5dbb005",
+    "semantic_hash": "14e1081310b55d7dc0c82d52c5dbb005"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/utils/format.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "23be72c212df4bdef89f9870d78b333a",
+    "semantic_hash": "23be72c212df4bdef89f9870d78b333a"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/utils/debug.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "ef2723399c20a706ea209e3599cb3613",
+    "semantic_hash": "ef2723399c20a706ea209e3599cb3613"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/utils/keyCodes.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "19f006f96161eaa15b1ade7ba18a1123",
+    "semantic_hash": "19f006f96161eaa15b1ade7ba18a1123"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/utils/audio.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "860817ca10978cc59295b83875516b77",
+    "semantic_hash": "860817ca10978cc59295b83875516b77"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/utils/parseChangelog.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "91a24e3a0389ae4a29017e9ccb2ecc33",
+    "semantic_hash": "91a24e3a0389ae4a29017e9ccb2ecc33"
+  },
+  "/home/linuxbrew/voicebox/app/src/lib/utils/cn.ts": {
+    "mtime": 1779972076.323695,
+    "ast_hash": "a40ab276f43a0e0a273926a9fa5055cc",
+    "semantic_hash": "a40ab276f43a0e0a273926a9fa5055cc"
+  },
+  "/home/linuxbrew/voicebox/app/src/hooks/useAutoUpdater.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "0c37c7a790349858fc694edaca1e54b2",
+    "semantic_hash": "0c37c7a790349858fc694edaca1e54b2"
+  },
+  "/home/linuxbrew/voicebox/app/src/hooks/useAutoUpdater.ts": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "362f74068a050182bcab55cd183036db",
+    "semantic_hash": "362f74068a050182bcab55cd183036db"
+  },
+  "/home/linuxbrew/voicebox/app/src/hooks/useThemeSync.ts": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "cfb6e14f34b169f0a7e48c9e5d3f9694",
+    "semantic_hash": "cfb6e14f34b169f0a7e48c9e5d3f9694"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ShinyText.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "2e1784e9e18aa3ac016d466a30da3c5f",
+    "semantic_hash": "2e1784e9e18aa3ac016d466a30da3c5f"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/AudioBars.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "643b5bea0acd6377b89de8813e3a60d6",
+    "semantic_hash": "643b5bea0acd6377b89de8813e3a60d6"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ListPane.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "189382cdd6db64fbea52e9907c4b047d",
+    "semantic_hash": "189382cdd6db64fbea52e9907c4b047d"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/Sidebar.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "3307a58aaa35eb1cee501e6b33130c4e",
+    "semantic_hash": "3307a58aaa35eb1cee501e6b33130c4e"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/TitleBarDragRegion.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "f344a2f1ad3a67a1007d5513bf3a7e40",
+    "semantic_hash": "f344a2f1ad3a67a1007d5513bf3a7e40"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/AppFrame/AppFrame.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "ce301a42ebc4dc2880fb558a57006ee6",
+    "semantic_hash": "ce301a42ebc4dc2880fb558a57006ee6"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/History/HistoryTable.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "64f1d13e346d5cd5d2286443bc8bc971",
+    "semantic_hash": "64f1d13e346d5cd5d2286443bc8bc971"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/AccessibilityGate/AccessibilityGate.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "2f23646a1e86e02dfdb0a8d4f112f4f3",
+    "semantic_hash": "2f23646a1e86e02dfdb0a8d4f112f4f3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/EffectsTab/EffectsList.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "03a089bfb56744081f820f4019581ed3",
+    "semantic_hash": "03a089bfb56744081f820f4019581ed3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/EffectsTab/EffectsTab.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "bc5a8d7c817760714089217d9e87dd78",
+    "semantic_hash": "bc5a8d7c817760714089217d9e87dd78"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/EffectsTab/EffectsDetail.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "950147726fab05a0d07dc1295530f67e",
+    "semantic_hash": "950147726fab05a0d07dc1295530f67e"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/StoriesTab/StoryContent.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "e786f780ff358eef34769360f0e91238",
+    "semantic_hash": "e786f780ff358eef34769360f0e91238"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/StoriesTab/StoryTrackEditor.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "8604b480f0a104e713abba71210e79fc",
+    "semantic_hash": "8604b480f0a104e713abba71210e79fc"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/StoriesTab/StoryChatItem.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "cfffbe9f890ad7a2650e68ad2873aa8a",
+    "semantic_hash": "cfffbe9f890ad7a2650e68ad2873aa8a"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/StoriesTab/StoryList.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "e0ca7a997e5df3e142f54cc96bd852e5",
+    "semantic_hash": "e0ca7a997e5df3e142f54cc96bd852e5"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/StoriesTab/StoriesTab.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "ab820047db36327253b7f07d5f124ba1",
+    "semantic_hash": "ab820047db36327253b7f07d5f124ba1"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/CapturesTab/DictationReadinessChecklist.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "3a3a0086896544b99b0359dc0796804a",
+    "semantic_hash": "3a3a0086896544b99b0359dc0796804a"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/CapturesTab/CaptureInlinePlayer.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "667d4b64095d524c49804d91ca7ad844",
+    "semantic_hash": "667d4b64095d524c49804d91ca7ad844"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/CapturesTab/CapturesTab.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "deb492d1de868768bb8c30dbd61711dd",
+    "semantic_hash": "deb492d1de868768bb8c30dbd61711dd"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerSettings/ModelProgress.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "302d8c7511fdb97486aa995299c4465c",
+    "semantic_hash": "302d8c7511fdb97486aa995299c4465c"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerSettings/ServerStatus.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "5fe3cf6af238f46867f3386b1c9404ec",
+    "semantic_hash": "5fe3cf6af238f46867f3386b1c9404ec"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerSettings/UpdateStatus.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "b7f3ff96817fb4c2072a43db395f4c9d",
+    "semantic_hash": "b7f3ff96817fb4c2072a43db395f4c9d"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerSettings/GpuAcceleration.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "b5bd07b343f5119610f9f7d82a728624",
+    "semantic_hash": "b5bd07b343f5119610f9f7d82a728624"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerSettings/ConnectionForm.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "bdd953fb53897f0f799c3831f8a47c3b",
+    "semantic_hash": "bdd953fb53897f0f799c3831f8a47c3b"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerSettings/ModelManagement.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "0c7eb4ee656d95b8260b4ff111023319",
+    "semantic_hash": "0c7eb4ee656d95b8260b4ff111023319"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/AudioSampleUpload.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "efcb5596e998a2a485755d35f5b01b85",
+    "semantic_hash": "efcb5596e998a2a485755d35f5b01b85"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/AudioSampleSystem.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "6c16d2dbf7efbcd8bb8ddeecef2b2b4c",
+    "semantic_hash": "6c16d2dbf7efbcd8bb8ddeecef2b2b4c"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/ProfileList.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "48684c4b340d2e68645f057ebba030e4",
+    "semantic_hash": "48684c4b340d2e68645f057ebba030e4"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/ProfileForm.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "052666e0eed3602b139b7b6eeb346bd5",
+    "semantic_hash": "052666e0eed3602b139b7b6eeb346bd5"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/ProfileCard.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "a7e6904637f3e50ed311d1defa0f9cdb",
+    "semantic_hash": "a7e6904637f3e50ed311d1defa0f9cdb"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/SampleUpload.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "7a3b7cc0cd32295fe0a92ebfb02fb383",
+    "semantic_hash": "7a3b7cc0cd32295fe0a92ebfb02fb383"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/AudioSampleRecording.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "1d6d9c426266e9cb30e67b9e013c77f3",
+    "semantic_hash": "1d6d9c426266e9cb30e67b9e013c77f3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoiceProfiles/SampleList.tsx": {
+    "mtime": 1779972076.3196948,
+    "ast_hash": "cb88cb5fa94a496799fdfb4e84c824a6",
+    "semantic_hash": "cb88cb5fa94a496799fdfb4e84c824a6"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ModelsTab/ModelsTab.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "5638c396f4017dd588c0084eaa42aaae",
+    "semantic_hash": "5638c396f4017dd588c0084eaa42aaae"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoicesTab/VoiceInspector.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "7e688abf48277a1581012b0c9d547bc0",
+    "semantic_hash": "7e688abf48277a1581012b0c9d547bc0"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/VoicesTab/VoicesTab.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "b11b4240a2ed0dcab7a388e63b96422c",
+    "semantic_hash": "b11b4240a2ed0dcab7a388e63b96422c"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/AudioTab/AudioTab.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "3af7b277d8e211325278c66ad559ad3d",
+    "semantic_hash": "3af7b277d8e211325278c66ad559ad3d"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/GpuPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "127ac5a2f3f27dbc8bee8a1e00e8446f",
+    "semantic_hash": "127ac5a2f3f27dbc8bee8a1e00e8446f"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/CapturesPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "1aae8a7d761d5cf407e187e609790636",
+    "semantic_hash": "1aae8a7d761d5cf407e187e609790636"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/SettingRow.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "28b3c2c2008ac689565ff617314ac2e4",
+    "semantic_hash": "28b3c2c2008ac689565ff617314ac2e4"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/ChangelogPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "79fdd3c978f0d783fe41f467dc642639",
+    "semantic_hash": "79fdd3c978f0d783fe41f467dc642639"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/GeneralPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "6a4c73f98ff1df121e094646fb88bec5",
+    "semantic_hash": "6a4c73f98ff1df121e094646fb88bec5"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/GenerationPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "80d72c3385a85b6f3245b6877785598d",
+    "semantic_hash": "80d72c3385a85b6f3245b6877785598d"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/LogsPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "21a22fa76d3d47d18af0b9ac073f18fc",
+    "semantic_hash": "21a22fa76d3d47d18af0b9ac073f18fc"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/AboutPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "d10065841a51b8a2f30e87e15648a9fc",
+    "semantic_hash": "d10065841a51b8a2f30e87e15648a9fc"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/ServerTab.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "821c34fa8ff70149f19d8362ed76c955",
+    "semantic_hash": "821c34fa8ff70149f19d8362ed76c955"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/LanguageSelect.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "dc766f19891a84dc105b24a52fead0ec",
+    "semantic_hash": "dc766f19891a84dc105b24a52fead0ec"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/ThemeSelect.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "87b9d5c7a45d3ee9d8b9c30ddb5f0ced",
+    "semantic_hash": "87b9d5c7a45d3ee9d8b9c30ddb5f0ced"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ServerTab/MCPPage.tsx": {
+    "mtime": 1779972076.3186948,
+    "ast_hash": "1cf23772447ed680628574821282fe27",
+    "semantic_hash": "1cf23772447ed680628574821282fe27"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ChordPicker/ChordPicker.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "561b5ac26bfa7527bf122629f319bdd3",
+    "semantic_hash": "561b5ac26bfa7527bf122629f319bdd3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/InputMonitoringGate/InputMonitoringGate.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "2003581c9ccccea262b7275104edd7ff",
+    "semantic_hash": "2003581c9ccccea262b7275104edd7ff"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/Generation/FloatingGenerateBox.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "894bb91ab38ebfd38991a74f9e56e1fb",
+    "semantic_hash": "894bb91ab38ebfd38991a74f9e56e1fb"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/Generation/EngineModelSelector.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "3e69b51864fddd8a01114e5ede0eff02",
+    "semantic_hash": "3e69b51864fddd8a01114e5ede0eff02"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/Generation/ParalinguisticInput.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "2f795551af56763e2890c2c6f6e0a008",
+    "semantic_hash": "2f795551af56763e2890c2c6f6e0a008"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/Effects/GenerationPicker.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "e353d05aa43ad348213e7176486ef6e3",
+    "semantic_hash": "e353d05aa43ad348213e7176486ef6e3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/Effects/EffectsChainEditor.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "899db5b8a1c64fc286170691fb43448f",
+    "semantic_hash": "899db5b8a1c64fc286170691fb43448f"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/CapturePill/CapturePill.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "b0f513510ca837cb18363a7539ba1ed7",
+    "semantic_hash": "b0f513510ca837cb18363a7539ba1ed7"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/AudioPlayer/AudioPlayer.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "d6c29d6b8f9eab83bcbf8fc415961f1f",
+    "semantic_hash": "d6c29d6b8f9eab83bcbf8fc415961f1f"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/AudioPlayer/AudioKeepAlive.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "bf0c571c4ca3f9c47623a51e01fdfe37",
+    "semantic_hash": "bf0c571c4ca3f9c47623a51e01fdfe37"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/label.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "1d869e5b9f434abe497baf466c54586a",
+    "semantic_hash": "1d869e5b9f434abe497baf466c54586a"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/card.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "4f7d1befca858c1704b85890095bae58",
+    "semantic_hash": "4f7d1befca858c1704b85890095bae58"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/multi-select.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "867ecf829e1e33441b6f88e3e333ca4d",
+    "semantic_hash": "867ecf829e1e33441b6f88e3e333ca4d"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/badge.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "0a5fe2b769f753ff6422dc8c5da703bf",
+    "semantic_hash": "0a5fe2b769f753ff6422dc8c5da703bf"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/select.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "f3a0e0863516e4e23a5f87829e9fadd9",
+    "semantic_hash": "f3a0e0863516e4e23a5f87829e9fadd9"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/input.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "0deff49628843c622d0971e6f0963e6c",
+    "semantic_hash": "0deff49628843c622d0971e6f0963e6c"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/circle-button.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "6ffd5dfad542b8d95cc182c5da487f12",
+    "semantic_hash": "6ffd5dfad542b8d95cc182c5da487f12"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/dialog.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "fbf42cea8cfea40f7c031c95b6dfd483",
+    "semantic_hash": "fbf42cea8cfea40f7c031c95b6dfd483"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/textarea.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "2b6d042116719e3bd86523627ca49e6c",
+    "semantic_hash": "2b6d042116719e3bd86523627ca49e6c"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/slider.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "2cf005be8642fbf2f50b25b59b63bad0",
+    "semantic_hash": "2cf005be8642fbf2f50b25b59b63bad0"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/tabs.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "836b56323bad0f8cdb4134e5c436d200",
+    "semantic_hash": "836b56323bad0f8cdb4134e5c436d200"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/alert-dialog.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "90c3de3732823f6416837a030c584d8e",
+    "semantic_hash": "90c3de3732823f6416837a030c584d8e"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/popover.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "c2e4970601c3068add0196db49fa922e",
+    "semantic_hash": "c2e4970601c3068add0196db49fa922e"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/separator.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "1c9380582542c8d59c7b8fc067a4dd89",
+    "semantic_hash": "1c9380582542c8d59c7b8fc067a4dd89"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/table.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "b79d3ec0d458fce0398a25551e1e21fe",
+    "semantic_hash": "b79d3ec0d458fce0398a25551e1e21fe"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/progress.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "384be0b5764db355e40bfd01959b3dba",
+    "semantic_hash": "384be0b5764db355e40bfd01959b3dba"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/dropdown-menu.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "5afc9aaf15a89da3abfa81993fa6a312",
+    "semantic_hash": "5afc9aaf15a89da3abfa81993fa6a312"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/toggle.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "1596996cf5726396c32429f203cbe1aa",
+    "semantic_hash": "1596996cf5726396c32429f203cbe1aa"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/toast.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "462abcca597d8d1d037802d6fe73a6b3",
+    "semantic_hash": "462abcca597d8d1d037802d6fe73a6b3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/button.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "fa21f224ce586ce8093c4f1422e8791f",
+    "semantic_hash": "fa21f224ce586ce8093c4f1422e8791f"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/use-toast.ts": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "dc2a97581f4edfdfc08a163905fc9820",
+    "semantic_hash": "dc2a97581f4edfdfc08a163905fc9820"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/toaster.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "840d232d2d0150e0eee8a0b29cbcd84e",
+    "semantic_hash": "840d232d2d0150e0eee8a0b29cbcd84e"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/form.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "c5be254825a7caf3987c8da68208c5f3",
+    "semantic_hash": "c5be254825a7caf3987c8da68208c5f3"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/ui/checkbox.tsx": {
+    "mtime": 1779972076.320695,
+    "ast_hash": "0c91b1bdee01f96bc2e26896271e3b57",
+    "semantic_hash": "0c91b1bdee01f96bc2e26896271e3b57"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/MainEditor/MainEditor.tsx": {
+    "mtime": 1779972076.317695,
+    "ast_hash": "40e5df3a8e93babc1a9004d0ef6403f1",
+    "semantic_hash": "40e5df3a8e93babc1a9004d0ef6403f1"
+  },
+  "/home/linuxbrew/voicebox/app/src/components/DictateWindow/DictateWindow.tsx": {
+    "mtime": 1779972076.3166947,
+    "ast_hash": "048dd11c83f6af17046a1456d0d8e7be",
+    "semantic_hash": "048dd11c83f6af17046a1456d0d8e7be"
+  },
+  "/home/linuxbrew/voicebox/app/src/types/index.ts": {
+    "mtime": 1779972076.3246949,
+    "ast_hash": "5d5a4ace0428d20b8ee8fe6f5fa2f254",
+    "semantic_hash": "5d5a4ace0428d20b8ee8fe6f5fa2f254"
+  },
+  "/home/linuxbrew/voicebox/app/src/i18n/index.ts": {
+    "mtime": 1779972076.3216949,
+    "ast_hash": "f3beb1663045131a7793a447c3a05fb7",
+    "semantic_hash": "f3beb1663045131a7793a447c3a05fb7"
+  },
+  "/home/linuxbrew/voicebox/app/src/i18n/locales/ja/translation.json": {
+    "mtime": 1779972076.3216949,
+    "ast_hash": "dd41903099e8fe15dab2f526b1d714f6",
+    "semantic_hash": "dd41903099e8fe15dab2f526b1d714f6"
+  },
+  "/home/linuxbrew/voicebox/app/src/i18n/locales/en/translation.json": {
+    "mtime": 1779972076.3216949,
+    "ast_hash": "a0c80102c8a279a0e62c98111eecc92b",
+    "semantic_hash": "a0c80102c8a279a0e62c98111eecc92b"
+  },
+  "/home/linuxbrew/voicebox/app/src/i18n/locales/zh-TW/translation.json": {
+    "mtime": 1779972076.3216949,
+    "ast_hash": "19b33f0fb9e02237eda3f36ca3bae8ec",
+    "semantic_hash": "19b33f0fb9e02237eda3f36ca3bae8ec"
+  },
+  "/home/linuxbrew/voicebox/app/src/i18n/locales/zh-CN/translation.json": {
+    "mtime": 1779972076.3216949,
+    "ast_hash": "5907c483482c7552a204432fc2f9404e",
+    "semantic_hash": "5907c483482c7552a204432fc2f9404e"
+  },
+  "/home/linuxbrew/voicebox/app/index.html": {
+    "mtime": 1779972076.2956946,
+    "ast_hash": "915e933b259b5c21cccdaa3cfa53a824",
+    "semantic_hash": "915e933b259b5c21cccdaa3cfa53a824"
+  },
+  "/home/linuxbrew/voicebox/app/src/assets/voicebox-logo.png": {
+    "mtime": 1779972076.3156948,
+    "ast_hash": "914f67ef887cfd1a81c2ac37f71b4a24",
+    "semantic_hash": "914f67ef887cfd1a81c2ac37f71b4a24"
+  },
+  "/home/linuxbrew/voicebox/app/src/assets/sponsors/openai.svg": {
+    "mtime": 1779972076.2956946,
+    "ast_hash": "2d8072d1bc64bb01b697d6417d692760",
+    "semantic_hash": "2d8072d1bc64bb01b697d6417d692760"
+  }
+}
