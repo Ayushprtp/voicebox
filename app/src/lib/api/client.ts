@@ -50,6 +50,12 @@ import type {
   MCPClientBinding,
   MCPClientBindingListResponse,
   MCPClientBindingUpsert,
+  RemoteProfileDeleteResponse,
+  RemoteProfileListResponse,
+  RemoteProfilePullRequest,
+  RemoteProfilePushRequest,
+  RemoteProfilePushResponse,
+  RemoteProfileUpdateRequest,
 } from './types';
 
 function formatErrorDetail(detail: unknown, fallback: string): string {
@@ -541,6 +547,56 @@ class ApiClient {
   // Model Management
   async getModelStatus(): Promise<ModelStatusListResponse> {
     return this.request<ModelStatusListResponse>('/models/status');
+  }
+
+  // Remote Voice Profiles (OmniVoice upstream)
+  async listRemoteProfiles(): Promise<RemoteProfileListResponse> {
+    return this.request<RemoteProfileListResponse>('/remote-profiles');
+  }
+
+  async pushLocalToRemote(
+    data: RemoteProfilePushRequest,
+  ): Promise<RemoteProfilePushResponse> {
+    return this.request<RemoteProfilePushResponse>('/remote-profiles', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }
+
+  async getRemoteProfile(
+    remoteProfileId: string,
+  ): Promise<Record<string, unknown>> {
+    return this.request<Record<string, unknown>>(
+      `/remote-profiles/${encodeURIComponent(remoteProfileId)}`,
+    );
+  }
+
+  async updateRemoteProfile(
+    remoteProfileId: string,
+    data: RemoteProfileUpdateRequest,
+  ): Promise<Record<string, unknown>> {
+    return this.request<Record<string, unknown>>(
+      `/remote-profiles/${encodeURIComponent(remoteProfileId)}`,
+      { method: 'PATCH', body: JSON.stringify(data) },
+    );
+  }
+
+  async unlinkRemoteProfile(
+    remoteProfileId: string,
+  ): Promise<RemoteProfileDeleteResponse> {
+    return this.request<RemoteProfileDeleteResponse>(
+      `/remote-profiles/${encodeURIComponent(remoteProfileId)}`,
+      { method: 'DELETE' },
+    );
+  }
+
+  async pullRemoteToLocal(
+    data: RemoteProfilePullRequest,
+  ): Promise<VoiceProfileResponse> {
+    return this.request<VoiceProfileResponse>('/remote-profiles/from-remote', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
   }
 
   async getModelsCacheDir(): Promise<{ path: string }> {

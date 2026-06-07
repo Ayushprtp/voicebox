@@ -522,9 +522,12 @@ export function AudioPlayer() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 border-t bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 z-50">
-      <div className="container mx-auto px-4 py-3 max-w-7xl">
-        <div className="flex items-center gap-4">
+    <div
+      className="fixed left-0 right-0 z-50 border-t bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 bottom-16 sm:bottom-0"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0)' }}
+    >
+      <div className="container mx-auto px-3 py-2 sm:px-4 sm:py-3 max-w-7xl">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           {/* Play/Pause Button */}
           <Button
             variant="ghost"
@@ -546,7 +549,7 @@ export function AudioPlayer() {
 
           {/* Waveform */}
           <div className="flex-1 min-w-0 flex flex-col gap-1">
-            <div ref={waveformRef} className="w-full min-h-[80px] select-none" />
+            <div ref={waveformRef} className="w-full min-h-[48px] sm:min-h-[80px] select-none" />
             <Slider
               value={duration > 0 ? [(currentTime / duration) * 100] : [0]}
               onValueChange={handleSeek}
@@ -561,7 +564,7 @@ export function AudioPlayer() {
           </div>
 
           {/* Time Display */}
-          <div className="flex items-center gap-2 text-sm text-muted-foreground shrink-0 min-w-[100px]">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground shrink-0 min-w-[90px] order-3 sm:order-none w-full justify-center sm:w-auto sm:justify-start">
             <span className="font-mono">{formatAudioDuration(currentTime)}</span>
             <span>/</span>
             <span className="font-mono">{formatAudioDuration(duration)}</span>
@@ -581,7 +584,7 @@ export function AudioPlayer() {
 
           {/* Volume Control */}
           <div
-            className="flex items-center gap-2 shrink-0 w-[120px]"
+            className="flex items-center gap-2 shrink-0 w-[120px] order-4 sm:order-none"
             role="group"
             aria-label="Volume"
           >

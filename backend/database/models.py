@@ -43,6 +43,11 @@ class VoiceProfile(Base):
     # says and how, orthogonal to how it sounds (handled by the preset /
     # cloning metadata above).
     personality = Column(Text, nullable=True)
+    # Link to a persistent voice profile stored on the remote OmniVoice
+    # upstream (/v1/voices/profiles). Set when a user pushes this local
+    # profile to the remote. The current generation path still re-uploads
+    # the local ref audio, so this is metadata, not a generation shortcut.
+    remote_profile_id = Column(String(64), nullable=True, index=True)
 
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

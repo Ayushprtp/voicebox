@@ -320,7 +320,7 @@ export function CapturesPage() {
               value={sttModel}
               onValueChange={(v) => update({ stt_model: v as WhisperModelSize })}
             >
-              <SelectTrigger className="w-[300px]">
+              <SelectTrigger className="w-full sm:w-[300px]">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

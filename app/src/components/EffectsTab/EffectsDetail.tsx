@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { Loader2, Play, Save, Trash2, Wand2 } from 'lucide-react';
+import { ArrowLeft, Loader2, Play, Save, Trash2, Wand2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -265,15 +265,26 @@ export function EffectsDetail() {
 
   return (
     <div className="flex flex-col h-full min-h-0">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">
-          {isCreatingNew
-            ? t('effects.detail.newTitle')
-            : isBuiltIn
-              ? presetName
-              : t('effects.detail.editTitle')}
-        </h2>
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between gap-2 mb-4">
+        <div className="flex items-center gap-2 min-w-0 flex-1">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 sm:hidden shrink-0"
+            onClick={() => useEffectsStore.getState().setMobileView('list')}
+            aria-label="Back to effects list"
+          >
+            <ArrowLeft className="h-4 w-4" />
+          </Button>
+          <h2 className="text-lg font-semibold truncate">
+            {isCreatingNew
+              ? t('effects.detail.newTitle')
+              : isBuiltIn
+                ? presetName
+                : t('effects.detail.editTitle')}
+          </h2>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
           {!isBuiltIn && !isCreatingNew && (
             <>
               <Button

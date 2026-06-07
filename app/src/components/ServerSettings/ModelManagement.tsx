@@ -97,6 +97,12 @@ function formatDownloads(n: number): string {
   return n.toString();
 }
 
+/** Voicebox backend names the remote models with a `remote-` prefix. */
+const REMOTE_MODEL_PREFIXES = ['remote-tts-', 'remote-omnivoice', 'remote-clone'];
+function isRemoteModel(modelName: string): boolean {
+  return REMOTE_MODEL_PREFIXES.some((p) => modelName.startsWith(p));
+}
+
 function formatLicense(license: string): string {
   const map: Record<string, string> = {
     'apache-2.0': 'Apache 2.0',
@@ -563,7 +569,22 @@ export function ModelManagement() {
 
                       {/* Name + inline progress */}
                       <div className="flex-1 min-w-0">
-                        <span className="text-sm font-medium">{model.display_name}</span>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {isRemoteModel(model.model_name) && (
+                            <Badge
+                              variant="remote"
+                              className="px-1.5 py-0 text-[9px] uppercase tracking-wider"
+                            >
+                              remote
+                            </Badge>
+                          )}
+                          <span className="text-sm font-medium">{model.display_name}</span>
+                        </div>
+                        {model.hf_repo_id && (
+                          <div className="text-[10px] text-muted-foreground/80 font-mono truncate">
+                            {model.hf_repo_id}
+                          </div>
+                        )}
                         {isDownloading &&
                           (() => {
                             const dl = downloadProgressMap.get(model.model_name);
@@ -674,7 +695,7 @@ export function ModelManagement() {
 
       {/* Model Detail Modal */}
       <Dialog open={detailOpen} onOpenChange={setDetailOpen}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="w-screen h-screen max-w-none left-0 top-0 translate-x-0 translate-y-0 rounded-none p-4 overflow-y-auto sm:max-w-md sm:max-h-[85vh] sm:rounded-lg sm:p-6 sm:translate-x-[-50%] sm:translate-y-[-50%] sm:left-[50%] sm:top-[50%]">
           {freshSelectedModel && (
             <>
               <DialogHeader>

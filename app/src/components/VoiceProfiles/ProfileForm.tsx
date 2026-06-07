@@ -61,7 +61,8 @@ import { AudioSampleUpload } from './AudioSampleUpload';
 import { SampleList } from './SampleList';
 
 const MAX_AUDIO_DURATION_SECONDS = 30;
-const PRESET_ONLY_ENGINES = new Set(['kokoro', 'qwen_custom_voice']);
+const PRESET_ONLY_ENGINES = new Set(['kokoro', 'qwen_custom_voice', 'remote_tts']);
+const CLONING_ENGINES = new Set(['qwen', 'luxtts', 'chatterbox', 'chatterbox_turbo', 'tada', 'remote_tts_clone']);
 const DEFAULT_ENGINE_OPTIONS = [
   { value: 'qwen', label: 'Qwen3-TTS' },
   { value: 'qwen_custom_voice', label: 'Qwen CustomVoice' },
@@ -70,6 +71,8 @@ const DEFAULT_ENGINE_OPTIONS = [
   { value: 'chatterbox_turbo', label: 'Chatterbox Turbo' },
   { value: 'tada', label: 'TADA' },
   { value: 'kokoro', label: 'Kokoro 82M' },
+  { value: 'remote_tts', label: 'Remote TTS' },
+  { value: 'remote_tts_clone', label: 'Remote TTS Clone' },
 ] as const;
 
 function makeProfileSchema(t: (key: string) => string) {
@@ -289,9 +292,19 @@ export function ProfileForm() {
   const isSampleBasedProfile = isCreating
     ? voiceSource === 'clone'
     : editingProfile?.voice_type !== 'preset';
-  const availableDefaultEngines = DEFAULT_ENGINE_OPTIONS.filter(
-    (option) => !isSampleBasedProfile || !PRESET_ONLY_ENGINES.has(option.value),
-  );
+  const availableDefaultEngines = DEFAULT_ENGINE_OPTIONS.filter((option) => {
+    // Preset-engine profile: only show preset engines and the engine of the
+    // profile's current preset_voice_id. Hide cloning engines.
+    if (!isSampleBasedProfile) {
+      return (
+        PRESET_ONLY_ENGINES.has(option.value) ||
+        (editingProfile?.preset_engine !== undefined &&
+          option.value === editingProfile.preset_engine)
+      );
+    }
+    // Cloned profile: only show cloning engines.
+    return CLONING_ENGINES.has(option.value);
+  });
 
   // Show recording errors
   useEffect(() => {
@@ -801,10 +814,10 @@ export function ProfileForm() {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-none w-screen h-screen left-0 top-0 translate-x-0 translate-y-0 rounded-none p-6 overflow-hidden">
-        <div className="max-w-5xl h-[85vh] mx-auto my-auto w-full flex flex-col overflow-hidden">
-          <DialogHeader>
-            <DialogTitle className="text-2xl">
+      <DialogContent className="max-w-none w-screen h-[100dvh] left-0 top-0 translate-x-0 translate-y-0 rounded-none p-0 sm:p-6 overflow-hidden sm:max-h-[85vh]">
+        <div className="max-w-5xl h-full sm:h-[85vh] mx-auto my-auto w-full flex flex-col overflow-hidden">
+          <DialogHeader className="px-4 pt-4 sm:px-0 sm:pt-0 pb-3 sm:bg-transparent sm:backdrop-blur-none">
+            <DialogTitle className="text-lg sm:text-2xl pr-12 sm:pr-0">
               {editingProfileId ? t('profileForm.editTitle') : t('profileForm.createTitle')}
             </DialogTitle>
             <DialogDescription>
@@ -844,10 +857,10 @@ export function ProfileForm() {
           </DialogHeader>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex-1 min-h-0 flex flex-col">
-              <div className="grid gap-6 grid-cols-2 flex-1 min-h-0 overflow-hidden">
+            <form id="profile-form" onSubmit={form.handleSubmit(onSubmit)} className="flex-1 min-h-0 flex flex-col sm:overflow-hidden">
+              <div className="flex-1 min-h-0 overflow-y-auto sm:grid sm:gap-4 md:gap-6 sm:grid-cols-2 sm:overflow-hidden">
                 {/* Left column: Sample management */}
-                <div className="space-y-4 border-r pr-6 overflow-y-auto min-h-0">
+                <div className="space-y-4 sm:border-r sm:pr-6 sm:overflow-y-auto sm:min-h-0 px-4 sm:px-0">
                   {isCreating ? (
                     <>
                       {/* Voice source selector */}
@@ -898,6 +911,7 @@ export function ProfileForm() {
                               <SelectContent>
                                 <SelectItem value="kokoro">Kokoro 82M</SelectItem>
                                 <SelectItem value="qwen_custom_voice">Qwen CustomVoice</SelectItem>
+                                <SelectItem value="remote_tts">Remote TTS</SelectItem>
                               </SelectContent>
                             </Select>
                           </FormItem>
@@ -1110,7 +1124,7 @@ export function ProfileForm() {
                 </div>
 
                 {/* Right column: Profile info */}
-                <div className="space-y-4 overflow-y-auto min-h-0">
+                <div className="space-y-4 sm:overflow-y-auto sm:min-h-0 px-4 sm:px-0 pt-4 sm:pt-0 border-t sm:border-t-0 pb-4 sm:pb-0">
                   {/* Avatar Upload */}
                   <FormField
                     control={form.control}
@@ -1290,26 +1304,28 @@ export function ProfileForm() {
                   )}
                 </div>
               </div>
-
-              <div className="flex gap-2 justify-end mt-6 pt-4 border-t">
-                <Button type="button" variant="outline" onClick={() => handleOpenChange(false)}>
-                  {t('common.cancel')}
-                </Button>
-                <Button
-                  type="submit"
-                  disabled={
-                    createProfile.isPending || updateProfile.isPending || addSample.isPending
-                  }
-                >
-                  {createProfile.isPending || updateProfile.isPending || addSample.isPending
-                    ? t('profileForm.actions.saving')
-                    : editingProfileId
-                      ? t('profileForm.actions.saveChanges')
-                      : t('profileForm.actions.createProfile')}
-                </Button>
-              </div>
             </form>
           </Form>
+
+          <div className="shrink-0 z-10 flex gap-2 sm:justify-end p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:p-0 sm:pt-4 sm:mt-6 sm:border-t border-t bg-background border-border">
+            <Button type="button" variant="outline" className="flex-1 sm:flex-initial h-12 sm:h-9 touch-manipulation" onClick={() => handleOpenChange(false)}>
+              {t('common.cancel')}
+            </Button>
+            <Button
+              type="submit"
+              form="profile-form"
+              className="flex-1 sm:flex-initial h-12 sm:h-9 touch-manipulation"
+              disabled={
+                createProfile.isPending || updateProfile.isPending || addSample.isPending
+              }
+            >
+              {createProfile.isPending || updateProfile.isPending || addSample.isPending
+                ? t('profileForm.actions.saving')
+                : editingProfileId
+                  ? t('profileForm.actions.saveChanges')
+                  : t('profileForm.actions.createProfile')}
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

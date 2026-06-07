@@ -121,6 +121,8 @@ def _configure_cors(application: FastAPI) -> None:
         "http://127.0.0.1:5173",
         "http://localhost:17493",
         "http://127.0.0.1:17493",
+        "http://localhost:2700",
+        "http://127.0.0.1:2700",
         "tauri://localhost",  # Tauri webview (macOS)
         "https://tauri.localhost",  # Tauri webview (Windows/Linux)
         "http://tauri.localhost",  # Tauri webview (Windows, some builds)
@@ -163,8 +165,18 @@ def _mount_frontend(application: FastAPI) -> None:
 
     # SPA catch-all: serve files if they exist, otherwise index.html for
     # client-side routes like /voices, /stories, /models, etc.
+    # Skip API routes — those are handled by registered routers above.
     @application.get("/{full_path:path}")
     async def serve_spa(full_path: str):
+        if (
+            full_path.startswith("api/")
+            or full_path.startswith("mcp")
+            or full_path.startswith("audio/")
+            or full_path.startswith("samples/")
+        ):
+            from fastapi.responses import JSONResponse
+
+            return JSONResponse({"detail": "Not Found"}, status_code=404)
         file_path = (frontend_dir / full_path).resolve()
         # Guard against path traversal — only serve files inside frontend_dir
         if full_path and file_path.is_file() and file_path.is_relative_to(frontend_dir):

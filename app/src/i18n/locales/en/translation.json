@@ -173,6 +173,8 @@
     "avatarAlt": "{{name}} avatar",
     "selectChannels": "Select channels…",
     "channelDefaultLabel": "{{name}} (Default)",
+    "noResults": "No voices match your search.",
+    "emptyMobile": "No voices yet. Tap the + button to create one.",
     "columns": {
       "name": "Name",
       "language": "Language",
@@ -184,7 +186,10 @@
   },
   "voiceInspector": {
     "loading": "Loading…",
+    "editingBadge": "Edit",
     "defaultEffectsHint": "Applied automatically to new generations with this voice.",
+    "changeAvatar": "Change avatar",
+    "removeAvatar": "Remove avatar",
     "fields": {
       "description": "Description"
     },
@@ -280,7 +285,8 @@
     "actions": {
       "saving": "Saving…",
       "saveChanges": "Save Changes",
-      "createProfile": "Create Profile"
+      "createProfile": "Create Profile",
+      "discard": "Discard"
     },
     "validation": {
       "nameRequired": "Name is required",
@@ -412,6 +418,29 @@
       "title": "Delete Profile",
       "body": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
       "deleting": "Deleting…"
+    },
+    "remote": {
+      "title": "Remote Profiles (OmniVoice upstream)",
+      "description": "Push local cloned profiles to the OmniVoice upstream so they can be used from any device that talks to the same upstream.",
+      "syncedSection": "Synced to remote",
+      "syncedEmpty": "No local profiles are synced to the remote yet.",
+      "pushSection": "Push to remote",
+      "pushHelp": "Pick a local cloned profile (with audio) and give it a name on the remote. Names can contain letters, digits, dashes, and underscores (max 64).",
+      "localProfileLabel": "Local profile",
+      "remoteIdLabel": "Remote profile name",
+      "remoteIdPlaceholder": "e.g. mohan_v1",
+      "overwriteLabel": "Overwrite if it already exists upstream",
+      "pushButton": "Push to remote",
+      "pushing": "Pushing…",
+      "viewButton": "View on remote",
+      "unlinkButton": "Unlink & delete from remote",
+      "repushButton": "Re-push",
+      "successPush": "Pushed to remote as \"{{name}}\"",
+      "successUnlink": "Unlinked \"{{name}}\" from remote",
+      "errorPushFailed": "Failed to push: {{message}}",
+      "errorUnlinkFailed": "Failed to unlink: {{message}}",
+      "errorLoadFailed": "Failed to load remote profiles: {{message}}",
+      "pullUnsupported": "The OmniVoice upstream does not expose a ref-audio download endpoint, so remote profiles cannot be pulled in. Push from a machine that has the audio."
     }
   },
   "effects": {
@@ -723,6 +752,10 @@
   "main": {
     "importVoice": "Import Voice",
     "createVoice": "Create Voice",
+    "pane": {
+      "profiles": "Profiles",
+      "history": "History"
+    },
     "import": {
       "invalidTitle": "Invalid file type",
       "invalidDescription": "Please select a valid .voicebox.zip file",

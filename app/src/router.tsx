@@ -26,6 +26,8 @@ import { VoicesTab } from '@/components/VoicesTab/VoicesTab';
 import { useGenerationProgress } from '@/lib/hooks/useGenerationProgress';
 import { useModelDownloadToast } from '@/lib/hooks/useModelDownloadToast';
 import { MODEL_DISPLAY_NAMES, useRestoreActiveTasks } from '@/lib/hooks/useRestoreActiveTasks';
+import { usePlatform } from '@/platform/PlatformContext';
+import { cn } from '@/lib/utils/cn';
 
 // Simple platform check that works in both web and Tauri
 const isMacOS = () => navigator.platform.toLowerCase().includes('mac');
@@ -34,6 +36,11 @@ const isMacOS = () => navigator.platform.toLowerCase().includes('mac');
 function RootLayout() {
   // Monitor active downloads/generations and show toasts for them
   const activeDownloads = useRestoreActiveTasks();
+  const platform = usePlatform();
+  // In Tauri the page-header would otherwise sit under the overlay title bar
+  // (pt-12 on AppFrame root) — reserve an extra pt-14. In web there is no
+  // title bar, so the page header's own pt-2 is enough.
+  const mobileTopPad = platform.metadata.isTauri ? 'pt-14' : 'pt-2';
 
   // Subscribe to SSE for pending generations — handles completion, auto-play, and history refresh
   useGenerationProgress();
@@ -43,8 +50,13 @@ function RootLayout() {
       <div className="flex flex-1 min-h-0 overflow-hidden">
         <Sidebar isMacOS={isMacOS()} />
 
-        <main className="flex-1 ml-20 overflow-hidden flex flex-col">
-          <div className="container mx-auto px-8 max-w-[1800px] h-full overflow-hidden flex flex-col">
+        <main className="flex-1 ml-0 pb-16 sm:pb-0 sm:ml-20 overflow-hidden flex flex-col">
+          <div
+            className={cn(
+              'w-full h-full overflow-hidden flex flex-col px-2 sm:px-8 sm:pt-6 sm:max-w-[1800px] sm:mx-auto',
+              mobileTopPad,
+            )}
+          >
             <Outlet />
           </div>
         </main>

@@ -14,6 +14,7 @@ import {
   FileText,
   Loader2,
   Mic,
+  ArrowLeft,
   Settings2,
   Sparkles,
   Square,
@@ -434,7 +435,7 @@ export function CapturesTab() {
   };
 
   return (
-    <div className="h-full flex gap-0 overflow-hidden -mx-8">
+    <div className="h-full flex gap-0 overflow-hidden sm:-mx-8">
       <input
         ref={uploadInputRef}
         type="file"
@@ -451,7 +452,12 @@ export function CapturesTab() {
       />
 
       {/* Left: capture list */}
-      <div className="w-[340px] shrink-0">
+      <div
+        className={cn(
+          'shrink-0 w-full sm:w-[340px]',
+          selectedId ? 'hidden sm:block' : 'block',
+        )}
+      >
         <ListPane>
           <ListPaneHeader>
             <ListPaneTitleRow>
@@ -534,12 +540,26 @@ export function CapturesTab() {
       </div>
 
       {/* Right: capture detail */}
-      <div className="flex-1 flex flex-col relative overflow-hidden min-w-0">
+      <div
+        className={cn(
+          'flex-1 flex flex-col relative overflow-hidden min-w-0',
+          selectedId ? 'flex' : 'hidden sm:flex',
+        )}
+      >
         <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
 
         {/* Top action bar */}
-        <div className="absolute top-0 left-0 right-0 z-20 px-8">
-          <div className="flex items-center gap-3 py-4">
+        <div className="absolute top-0 left-0 right-0 z-20 px-2 sm:px-8">
+          <div className="flex items-center gap-2 sm:gap-3 py-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8 sm:hidden shrink-0"
+              onClick={() => setSelectedId(null)}
+              aria-label="Back to captures"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               <span>

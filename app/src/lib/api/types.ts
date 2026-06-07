@@ -29,6 +29,7 @@ export interface VoiceProfileResponse {
   design_prompt?: string;
   default_engine?: string;
   personality?: string | null;
+  remote_profile_id?: string | null;
   generation_count: number;
   sample_count: number;
   created_at: string;
@@ -70,7 +71,7 @@ export interface GenerationRequest {
   text: string;
   language: LanguageCode;
   seed?: number;
-  model_size?: '1.7B' | '0.6B' | '1B' | '3B';
+  model_size?: '1.7B' | '0.6B' | '1B' | '3B' | 'tts-1' | 'tts-1-hd' | 'omnivoice';
   engine?:
     | 'qwen'
     | 'qwen_custom_voice'
@@ -78,7 +79,9 @@ export interface GenerationRequest {
     | 'chatterbox'
     | 'chatterbox_turbo'
     | 'tada'
-    | 'kokoro';
+    | 'kokoro'
+    | 'remote_tts'
+    | 'remote_tts_clone';
   instruct?: string;
   /** When true and the profile has a personality prompt, input text is rewritten in-character before TTS. */
   personality?: boolean;
@@ -520,4 +523,49 @@ export interface MCPClientBindingUpsert {
 
 export interface MCPClientBindingListResponse {
   items: MCPClientBinding[];
+}
+
+/* ─── Remote voice profiles (OmniVoice upstream) ─────────────────────── */
+
+export interface RemoteProfileLink {
+  local_profile_id: string;
+  local_profile_name: string;
+  remote_profile_id: string;
+  language: string;
+  default_engine: string | null;
+}
+
+export interface RemoteProfileListResponse {
+  items: RemoteProfileLink[];
+  total: number;
+}
+
+export interface RemoteProfilePushRequest {
+  local_profile_id: string;
+  remote_profile_id: string;
+  ref_text?: string;
+  overwrite?: boolean;
+}
+
+export interface RemoteProfilePushResponse {
+  local_profile_id: string;
+  remote_profile_id: string;
+  upstream: Record<string, unknown>;
+}
+
+export interface RemoteProfileUpdateRequest {
+  ref_text?: string;
+}
+
+export interface RemoteProfilePullRequest {
+  remote_profile_id: string;
+  local_profile_name: string;
+  language?: string;
+  ref_text?: string;
+}
+
+export interface RemoteProfileDeleteResponse {
+  remote_profile_id: string;
+  deleted: boolean;
+  unlinked_local_profiles: number;
 }

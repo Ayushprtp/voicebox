@@ -9,7 +9,7 @@ import { ProfileCard } from './ProfileCard';
 import { ProfileForm } from './ProfileForm';
 
 /** Engines that use preset (built-in) voices instead of cloned profiles. */
-const PRESET_ENGINES = new Set(['kokoro', 'qwen_custom_voice']);
+const PRESET_ENGINES = new Set(['kokoro', 'qwen_custom_voice', 'remote_tts']);
 
 export function ProfileList() {
   const { t } = useTranslation();
@@ -85,11 +85,11 @@ export function ProfileList() {
             </CardContent>
           </Card>
         ) : (
-          <div className="flex gap-4 overflow-x-auto p-1 pb-1 lg:grid lg:grid-cols-3 lg:auto-rows-auto lg:overflow-x-visible lg:pb-[150px]">
+          <div className="grid grid-cols-2 gap-3 p-1 sm:flex sm:flex-wrap sm:grid-cols-2 sm:gap-3 sm:overflow-x-visible sm:pb-[150px] lg:grid-cols-3">
             {sortedProfiles.map((profile) => (
               <div
                 key={profile.id}
-                className="shrink-0 w-[200px] lg:w-auto lg:shrink"
+                className="w-full sm:w-[calc(50%-0.375rem)] sm:max-w-none lg:w-[calc(33.333%-0.5rem)]"
                 ref={(el) => {
                   if (el) cardRefs.current.set(profile.id, el);
                   else cardRefs.current.delete(profile.id);

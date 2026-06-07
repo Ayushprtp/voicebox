@@ -24,7 +24,8 @@ from ..utils.images import process_avatar, validate_image
 
 logger = logging.getLogger(__name__)
 
-CLONING_ENGINES = {"qwen", "luxtts", "chatterbox", "chatterbox_turbo", "tada"}
+CLONING_ENGINES = {"qwen", "luxtts", "chatterbox", "chatterbox_turbo", "tada", "remote_tts_clone"}
+REMOTE_TTS_VOICE_IDS = {"alloy", "echo", "nova", "ash", "ballad", "cedar", "coral", "fable", "marin", "onyx", "sage", "shimmer", "verse", "auto"}
 
 
 def _profile_to_response(
@@ -55,6 +56,7 @@ def _profile_to_response(
         design_prompt=getattr(profile, "design_prompt", None),
         default_engine=getattr(profile, "default_engine", None),
         personality=getattr(profile, "personality", None),
+        remote_profile_id=getattr(profile, "remote_profile_id", None),
         generation_count=generation_count,
         sample_count=sample_count,
         created_at=profile.created_at,
@@ -72,6 +74,9 @@ def _get_preset_voice_ids(engine: str) -> set[str]:
         from ..backends.qwen_custom_voice_backend import QWEN_CUSTOM_VOICES
 
         return {voice_id for voice_id, _name, _gender, _lang, _desc in QWEN_CUSTOM_VOICES}
+
+    if engine == "remote_tts":
+        return REMOTE_TTS_VOICE_IDS
 
     return set()
 
@@ -556,6 +561,7 @@ async def create_voice_prompt_for_profile(
             "voice_type": "preset",
             "preset_engine": profile.preset_engine,
             "preset_voice_id": profile.preset_voice_id,
+            "remote_profile_id": getattr(profile, "remote_profile_id", None),
         }
 
     # ── Designed profiles: return text description (future) ──
@@ -565,6 +571,7 @@ async def create_voice_prompt_for_profile(
         return {
             "voice_type": "designed",
             "design_prompt": profile.design_prompt,
+            "remote_profile_id": getattr(profile, "remote_profile_id", None),
         }
 
     if engine not in CLONING_ENGINES:
@@ -588,6 +595,7 @@ async def create_voice_prompt_for_profile(
             sample.reference_text,
             use_cache=use_cache,
         )
+        voice_prompt["remote_profile_id"] = getattr(profile, "remote_profile_id", None)
         return voice_prompt
 
     audio_paths = []
@@ -621,6 +629,7 @@ async def create_voice_prompt_for_profile(
         combined_text,
         use_cache=use_cache,
     )
+    voice_prompt["remote_profile_id"] = getattr(profile, "remote_profile_id", None)
     return voice_prompt
 
 

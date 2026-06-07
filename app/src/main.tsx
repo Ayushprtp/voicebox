@@ -6,11 +6,15 @@ import App from './App';
 import './i18n';
 import './index.css';
 import { queryClient } from './lib/queryClient';
+import { PlatformProvider } from './platform/PlatformContext';
+import { webPlatform } from './platform/webPlatform';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <PlatformProvider platform={webPlatform}>
+        <App />
+      </PlatformProvider>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   </React.StrictMode>,

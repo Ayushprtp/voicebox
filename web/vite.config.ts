@@ -5,6 +5,9 @@ import { defineConfig } from 'vite';
 import { changelogPlugin } from '../app/plugins/changelog';
 
 export default defineConfig({
+  server: {
+    allowedHosts: ['voice.flare-labs.tech', 'voicebox.flare-labs.tech'],
+  },
   plugins: [react(), tailwindcss(), changelogPlugin(path.resolve(__dirname, '..'))],
   resolve: {
     alias: {

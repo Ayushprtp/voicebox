@@ -117,7 +117,7 @@ pub fn show_dictate_window(app: &tauri::AppHandle) {
 }
 
 const LEGACY_PORT: u16 = 8000;
-pub(crate) const SERVER_PORT: u16 = 17493;
+pub(crate) const SERVER_PORT: u16 = 2700;
 
 /// Find a voicebox-server process listening on a given port (Windows only).
 ///

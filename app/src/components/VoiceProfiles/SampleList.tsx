@@ -95,37 +95,37 @@ function MiniSamplePlayer({ audioUrl }: MiniSamplePlayerProps) {
   };
 
   return (
-    <div className="border-t bg-muted/30 px-3 py-2 mt-2">
-      <div className="flex items-center gap-2">
+    <div className="border-t bg-muted/30 px-2 py-2 mt-2 sm:px-3">
+      <div className="flex items-center gap-1.5 sm:gap-2">
         <Button
           type="button"
           variant="ghost"
           size="icon"
-          className="h-7 w-7 shrink-0"
+          className="h-8 w-8 sm:h-7 sm:w-7 shrink-0"
           onClick={handlePlayPause}
           disabled={isLoading}
           aria-label={isPlaying ? t('sampleList.player.pause') : t('sampleList.player.play')}
         >
-          {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 ml-0.5" />}
+          {isPlaying ? <Pause className="h-4 w-4 sm:h-3.5 sm:w-3.5" /> : <Play className="h-4 w-4 sm:h-3.5 sm:w-3.5 ml-0.5" />}
         </Button>
 
-        <div className="flex-1 min-w-0 flex items-center gap-2">
+        <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
           <Slider
             value={duration > 0 ? [(currentTime / duration) * 100] : [0]}
             onValueChange={handleSeek}
             max={100}
             step={0.1}
-            className="flex-1"
+            className="flex-1 w-full"
             aria-label={t('sampleList.player.position')}
             aria-valuetext={t('sampleList.player.positionValue', {
               current: formatAudioDuration(currentTime),
               total: formatAudioDuration(duration),
             })}
           />
-          <div className="flex items-center gap-1 text-xs text-muted-foreground shrink-0 min-w-[70px]">
-            <span className="font-mono">{formatAudioDuration(currentTime)}</span>
+          <div className="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-muted-foreground shrink-0 sm:min-w-[70px] font-mono">
+            <span>{formatAudioDuration(currentTime)}</span>
             <span>/</span>
-            <span className="font-mono">{formatAudioDuration(duration)}</span>
+            <span>{formatAudioDuration(duration)}</span>
           </div>
         </div>
 
@@ -133,12 +133,12 @@ function MiniSamplePlayer({ audioUrl }: MiniSamplePlayerProps) {
           type="button"
           variant="ghost"
           size="icon"
-          className="h-7 w-7 shrink-0"
+          className="h-8 w-8 sm:h-7 sm:w-7 shrink-0"
           onClick={handleStop}
           title={t('sampleList.player.stop')}
           aria-label={t('sampleList.player.stopAria')}
         >
-          <X className="h-3.5 w-3.5" />
+          <X className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
         </Button>
       </div>
     </div>
@@ -276,16 +276,16 @@ export function SampleList({ profileId }: SampleListProps) {
                 ) : (
                   <>
                     {/* View Mode */}
-                    <div className="flex items-center gap-3 p-3 h-[72px]">
+                    <div className="flex items-center gap-2 sm:gap-3 p-3 min-h-[72px]">
                       {/* Text Content */}
-                      <div className="flex-1 min-w-0 py-0.5">
+                      <div className="flex-1 min-w-0 py-0.5 pr-7">
                         <p className="text-sm font-medium line-clamp-2 leading-snug">
                           {sample.reference_text}
                         </p>
                       </div>
 
-                      {/* Action Buttons */}
-                      <div className="shrink-0 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                      {/* Action Buttons — always visible on mobile (no hover), hover-only on desktop. */}
+                      <div className="shrink-0 flex items-center gap-0.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                         <CircleButton
                           icon={Edit}
                           title={t('sampleList.editTranscription')}

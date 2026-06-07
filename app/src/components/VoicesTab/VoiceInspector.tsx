@@ -38,6 +38,7 @@ import {
 import { cn } from '@/lib/utils/cn';
 import { usePlayerStore } from '@/stores/playerStore';
 import { useServerStore } from '@/stores/serverStore';
+import { useUIStore } from '@/stores/uiStore';
 
 function makeProfileSchema(t: (key: string) => string) {
   return z.object({
@@ -66,6 +67,7 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
   const uploadAvatar = useUploadAvatar();
   const deleteAvatar = useDeleteAvatar();
   const serverUrl = useServerStore((state) => state.serverUrl);
+  const setSelectedVoiceId = useUIStore((state) => state.setSelectedVoiceId);
   const { toast } = useToast();
 
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
@@ -84,9 +86,12 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
     },
   });
 
-  // Populate form when profile loads
+  // Populate form when the profile ID changes (not on every refetch),
+  // so user edits aren't clobbered by background refetches.
+  const profileIdRef = useRef<string | null>(null);
   useEffect(() => {
-    if (profile) {
+    if (profile && profile.id !== profileIdRef.current) {
+      profileIdRef.current = profile.id;
       form.reset({
         name: profile.name,
         description: profile.description || '',
@@ -106,6 +111,19 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
     }
     setAvatarError(false);
   }, [profile, serverUrl]);
+
+  // Escape closes the inspector. Bound on keydown capture so it fires
+  // regardless of which child element has focus.
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setSelectedVoiceId(null);
+      }
+    };
+    document.addEventListener('keydown', handler, true);
+    return () => document.removeEventListener('keydown', handler, true);
+  }, [setSelectedVoiceId]);
 
   function handleAvatarFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -205,6 +223,23 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
     }
   }
 
+  function handleDiscard() {
+    const dirty = form.formState.isDirty || effectsDirty;
+    if (dirty) {
+      if (profile) {
+        form.reset({
+          name: profile.name,
+          description: profile.description || '',
+          language: profile.language as LanguageCode,
+        });
+        setEffectsChain(profile.effects_chain ?? []);
+        setEffectsDirty(false);
+      }
+    } else {
+      setSelectedVoiceId(null);
+    }
+  }
+
   if (!profile) {
     return (
       <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
@@ -216,8 +251,36 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
   const isDirty = form.formState.isDirty || effectsDirty;
 
   return (
-    <div className="h-full flex flex-col overflow-hidden">
-      <div className={cn('flex-1 overflow-y-auto', isPlayerVisible && BOTTOM_SAFE_AREA_PADDING)}>
+    <div className="h-full flex flex-col overflow-hidden bg-background sm:bg-card">
+      {/* Mobile-only close bar — sits outside the <form> below so the X
+          button can never be intercepted by form submit / validation. */}
+      <div className="flex sm:hidden shrink-0 items-center justify-between gap-2 px-2 h-14 border-b bg-background sticky top-0 z-20">
+        <div className="flex items-center gap-2 pl-2 min-w-0 flex-1">
+          <span className="inline-flex items-center text-[10px] font-bold uppercase tracking-wider text-muted-foreground bg-muted/70 rounded px-1.5 py-0.5 shrink-0">
+            {t('voiceInspector.editingBadge', { defaultValue: 'Edit' })}
+          </span>
+          <span className="text-sm font-semibold text-foreground truncate">
+            {profile?.name ?? ''}
+          </span>
+        </div>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="h-11 w-11 shrink-0 touch-manipulation rounded-full bg-muted/40 hover:bg-muted/70"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setSelectedVoiceId(null);
+          }}
+          onPointerDown={(e) => e.stopPropagation()}
+          aria-label={t('common.close') as string}
+        >
+          <X className="h-6 w-6" />
+        </Button>
+      </div>
+
+      <div className={cn('flex-1 overflow-y-auto overscroll-contain', isPlayerVisible && BOTTOM_SAFE_AREA_PADDING)}>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-0">
             {/* Avatar */}
@@ -238,7 +301,8 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
                 <button
                   type="button"
                   onClick={() => avatarInputRef.current?.click()}
-                  className="absolute inset-0 rounded-full bg-accent/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
+                  aria-label={t('voiceInspector.changeAvatar') as string}
+                  className="absolute inset-0 rounded-full bg-accent/60 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
                 >
                   <Edit2 className="h-5 w-5 text-accent-foreground" />
                 </button>
@@ -247,9 +311,10 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
                     type="button"
                     onClick={handleRemoveAvatar}
                     disabled={deleteAvatar.isPending}
-                    className="absolute bottom-0 right-0 h-5 w-5 rounded-full bg-background/60 backdrop-blur-sm text-muted-foreground flex items-center justify-center hover:bg-background/80 hover:text-foreground transition-colors shadow-sm border border-border/50"
+                    aria-label={t('voiceInspector.removeAvatar') as string}
+                    className="absolute -bottom-1 -right-1 h-6 w-6 sm:bottom-0 sm:right-0 sm:h-5 sm:w-5 rounded-full bg-background text-muted-foreground flex items-center justify-center hover:bg-background hover:text-foreground transition-colors shadow-sm border border-border/60 touch-manipulation"
                   >
-                    <X className="h-3 w-3" />
+                    <X className="h-3.5 w-3.5 sm:h-3 sm:w-3" />
                   </button>
                 )}
               </div>
@@ -263,7 +328,7 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
             </div>
 
             {/* Fields */}
-            <div className="space-y-3 px-5">
+            <div className="space-y-3 px-3 sm:px-5">
               <FormField
                 control={form.control}
                 name="name"
@@ -337,18 +402,38 @@ export function VoiceInspector({ profileId }: VoiceInspectorProps) {
                 />
               </div>
 
-              {/* Save */}
-              {isDirty && (
-                <Button type="submit" className="w-full" disabled={updateProfile.isPending}>
-                  {updateProfile.isPending
-                    ? t('profileForm.actions.saving')
-                    : t('profileForm.actions.saveChanges')}
-                </Button>
-              )}
+              {/* Save / Discard — sticky on mobile so it's always visible while editing */}
+              <div
+                className={cn(
+                  'sticky bottom-0 z-10 -mx-3 sm:mx-0 px-3 sm:px-0 py-3 sm:py-0 sm:relative sm:bg-transparent sm:border-0 sm:mt-6',
+                  'bg-background/95 backdrop-blur-sm border-t border-border/60',
+                )}
+              >
+                <div className="flex items-center gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handleDiscard}
+                    disabled={updateProfile.isPending}
+                    className="h-12 sm:h-10 px-4 text-sm font-medium touch-manipulation shrink-0"
+                  >
+                    {isDirty ? t('profileForm.actions.discard') : t('common.close')}
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="flex-1 h-12 sm:h-10 text-base font-semibold touch-manipulation"
+                    disabled={!isDirty || updateProfile.isPending}
+                  >
+                    {updateProfile.isPending
+                      ? t('profileForm.actions.saving')
+                      : t('profileForm.actions.saveChanges')}
+                  </Button>
+                </div>
+              </div>
             </div>
 
             {/* Samples */}
-            <div className="px-5 pb-5">
+            <div className="px-3 sm:px-5 pb-5">
               <SampleList profileId={profileId} />
             </div>
           </form>

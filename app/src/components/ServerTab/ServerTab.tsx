@@ -39,7 +39,7 @@ export function SettingsLayout() {
 
   return (
     <div className="flex flex-col h-full min-h-0">
-      <nav className="flex gap-1 border-b shrink-0">
+      <nav className="flex gap-1 border-b shrink-0 overflow-x-auto">
         {tabs.map((tab) => {
           if (tab.tauriOnly && !platform.metadata.isTauri) return null;
 
@@ -53,7 +53,7 @@ export function SettingsLayout() {
               key={tab.path}
               to={tab.path}
               className={cn(
-                'px-4 py-2 text-sm font-medium transition-colors border-b-2 -mb-px',
+                'px-4 py-2 text-sm font-medium transition-colors border-b-2 -mb-px whitespace-nowrap shrink-0',
                 isActive
                   ? 'border-accent text-foreground'
                   : 'border-transparent text-muted-foreground hover:text-foreground hover:border-muted-foreground/30',

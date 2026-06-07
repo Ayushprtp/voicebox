@@ -12,15 +12,32 @@ interface EffectsStore {
   // Track if editing an existing preset vs creating new
   isCreatingNew: boolean;
   setIsCreatingNew: (v: boolean) => void;
+
+  /**
+   * Mobile-only: 'list' shows the preset list full-screen, 'detail' shows
+   * the editor full-screen. On `sm+` both panes are always visible so this
+   * state is ignored.
+   */
+  mobileView: 'list' | 'detail';
+  setMobileView: (view: 'list' | 'detail') => void;
 }
 
 export const useEffectsStore = create<EffectsStore>((set) => ({
   selectedPresetId: null,
-  setSelectedPresetId: (id) => set({ selectedPresetId: id, isCreatingNew: false }),
+  setSelectedPresetId: (id) =>
+    set({ selectedPresetId: id, isCreatingNew: false, mobileView: 'detail' }),
 
   workingChain: [],
   setWorkingChain: (chain) => set({ workingChain: chain }),
 
   isCreatingNew: false,
-  setIsCreatingNew: (v) => set({ isCreatingNew: v, ...(v && { selectedPresetId: null }) }),
+  setIsCreatingNew: (v) =>
+    set({
+      isCreatingNew: v,
+      ...(v && { selectedPresetId: null }),
+      mobileView: 'detail',
+    }),
+
+  mobileView: 'list',
+  setMobileView: (view) => set({ mobileView: view }),
 }));

@@ -74,7 +74,10 @@ async def generate_speech(
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-    model_size = (data.model_size or "1.7B") if engine_has_model_sizes(engine) else None
+    if engine == "remote_tts":
+        model_size = data.model_size or "tts-1"
+    else:
+        model_size = (data.model_size or "1.7B") if engine_has_model_sizes(engine) else None
 
     text = data.text
     source = "manual"
@@ -333,7 +336,7 @@ async def stream_speech(
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     tts_model = get_tts_backend_for_engine(engine)
-    model_size = data.model_size or "1.7B"
+    model_size = data.model_size or ("tts-1" if engine == "remote_tts" else "1.7B")
 
     await ensure_model_cached_or_raise(engine, model_size)
     await load_engine_model(engine, model_size)

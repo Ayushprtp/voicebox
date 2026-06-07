@@ -8,6 +8,11 @@ interface StoryPlaybackState {
   selectedClipId: string | null;
   setSelectedClipId: (id: string | null) => void;
 
+  // Mobile-only: which pane is visible. On `sm+` both are always visible
+  // and this state is ignored.
+  mobileView: 'list' | 'content';
+  setMobileView: (view: 'list' | 'content') => void;
+
   // Track editor UI state
   trackEditorHeight: number;
   setTrackEditorHeight: (height: number) => void;
@@ -36,9 +41,12 @@ const DEFAULT_TRACK_EDITOR_HEIGHT = 250;
 export const useStoryStore = create<StoryPlaybackState>((set, get) => ({
   // Selection
   selectedStoryId: null,
-  setSelectedStoryId: (id) => set({ selectedStoryId: id }),
+  setSelectedStoryId: (id) => set({ selectedStoryId: id, mobileView: id ? 'content' : 'list' }),
   selectedClipId: null,
   setSelectedClipId: (id) => set({ selectedClipId: id }),
+
+  mobileView: 'list',
+  setMobileView: (view) => set({ mobileView: view }),
 
   // Track editor UI state
   trackEditorHeight: DEFAULT_TRACK_EDITOR_HEIGHT,

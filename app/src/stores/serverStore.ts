@@ -28,7 +28,12 @@ function invalidateAllServerData() {
 }
 
 export function getDefaultServerUrl(): string {
-  const fallback = 'http://127.0.0.1:17493';
+  const fallback = 'http://127.0.0.1:2700';
+
+  const envServer = import.meta.env.VITE_SERVER_URL;
+  if (envServer) {
+    return envServer;
+  }
 
   if (!import.meta.env.PROD || typeof window === 'undefined') {
     return fallback;
@@ -50,7 +55,7 @@ export function isLoopbackVoiceboxServerUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
     return (
-      parsed.port === '17493' &&
+      parsed.port === '2700' &&
       (parsed.hostname === '127.0.0.1' ||
         parsed.hostname === 'localhost' ||
         parsed.hostname === '[::1]' ||

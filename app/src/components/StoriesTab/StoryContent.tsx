@@ -15,7 +15,7 @@ import {
 } from '@dnd-kit/sortable';
 import { Link } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Download, Music, Plus, Upload } from 'lucide-react';
+import { ArrowLeft, Download, Music, Plus, Upload } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loaders';
@@ -362,12 +362,23 @@ export function StoryContent() {
       <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
 
       {/* Header */}
-      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-1">
-        <div>
-          <h2 className="text-2xl font-bold">{story.name}</h2>
-          {story.description && (
-            <p className="text-sm text-muted-foreground mt-1">{story.description}</p>
-          )}
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between gap-2 px-1">
+        <div className="flex items-center gap-2 min-w-0">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 sm:hidden shrink-0"
+            onClick={() => useStoryStore.getState().setMobileView('list')}
+            aria-label="Back to stories"
+          >
+            <ArrowLeft className="h-4 w-4" />
+          </Button>
+          <div className="min-w-0">
+            <h2 className="text-2xl font-bold truncate">{story.name}</h2>
+            {story.description && (
+              <p className="text-sm text-muted-foreground mt-1 truncate">{story.description}</p>
+            )}
+          </div>
         </div>
         <div className="flex gap-2 items-center">
           <AnimatePresence>

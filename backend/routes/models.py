@@ -268,6 +268,20 @@ async def get_model_status():
 
     for config in model_configs:
         try:
+            if config["hf_repo_id"].startswith("remote://"):
+                statuses.append(
+                    models.ModelStatus(
+                        model_name=config["model_name"],
+                        display_name=config["display_name"],
+                        hf_repo_id=config["hf_repo_id"],
+                        downloaded=True,
+                        downloading=False,
+                        size_mb=0,
+                        loaded=True,
+                    )
+                )
+                continue
+
             downloaded = False
             size_mb = None
             loaded = False

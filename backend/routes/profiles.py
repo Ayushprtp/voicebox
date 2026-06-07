@@ -104,6 +104,21 @@ async def list_preset_voices(engine: str):
                 for speaker_id, display_name, gender, lang, _desc in QWEN_CUSTOM_VOICES
             ],
         }
+    if engine == "remote_tts":
+        from ..backends.remote_tts_backend import REMOTE_TTS_VOICES
+
+        return {
+            "engine": engine,
+            "voices": [
+                {
+                    "voice_id": voice_id,
+                    "name": name,
+                    "gender": gender,
+                    "language": lang,
+                }
+                for voice_id, name, gender, lang in REMOTE_TTS_VOICES
+            ],
+        }
     return {"engine": engine, "voices": []}
 
 @router.get("/profiles/{profile_id}", response_model=models.VoiceProfileResponse)

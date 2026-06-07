@@ -215,6 +215,8 @@ TTS_ENGINES = {
     "chatterbox_turbo": "Chatterbox Turbo",
     "tada": "TADA",
     "kokoro": "Kokoro",
+    "remote_tts": "Remote TTS",
+    "remote_tts_clone": "Remote TTS Clone",
 }
 
 LLM_ENGINES = {
@@ -363,6 +365,42 @@ def _get_non_qwen_tts_configs() -> list[ModelConfig]:
             hf_repo_id="hexgrad/Kokoro-82M",
             size_mb=350,
             languages=["en", "es", "fr", "hi", "it", "pt", "ja", "zh"],
+        ),
+        ModelConfig(
+            model_name="remote-tts-1",
+            display_name="Remote TTS tts-1",
+            engine="remote_tts",
+            hf_repo_id="remote://tts-1",
+            model_size="tts-1",
+            size_mb=0,
+            languages=list(LANGUAGE_CODE_TO_NAME.keys()),
+        ),
+        ModelConfig(
+            model_name="remote-tts-1-hd",
+            display_name="Remote TTS tts-1-hd",
+            engine="remote_tts",
+            hf_repo_id="remote://tts-1-hd",
+            model_size="tts-1-hd",
+            size_mb=0,
+            languages=list(LANGUAGE_CODE_TO_NAME.keys()),
+        ),
+        ModelConfig(
+            model_name="remote-omnivoice",
+            display_name="Omnivoice",
+            engine="remote_tts",
+            hf_repo_id="remote://omnivoice",
+            model_size="omnivoice",
+            size_mb=0,
+            languages=list(LANGUAGE_CODE_TO_NAME.keys()),
+        ),
+        ModelConfig(
+            model_name="remote-clone",
+            display_name="Remote TTS Clone",
+            engine="remote_tts_clone",
+            hf_repo_id="remote://clone",
+            model_size="default",
+            size_mb=0,
+            languages=list(LANGUAGE_CODE_TO_NAME.keys()),
         ),
     ]
 
@@ -515,7 +553,7 @@ async def load_engine_model(engine: str, model_size: str = "default") -> None:
     backend = get_tts_backend_for_engine(engine)
     if engine in ("qwen", "qwen_custom_voice"):
         await backend.load_model_async(model_size)
-    elif engine == "tada":
+    elif engine in ("tada", "remote_tts", "remote_tts_clone"):
         await backend.load_model(model_size)
     else:
         await backend.load_model()
@@ -531,6 +569,9 @@ async def ensure_model_cached_or_raise(engine: str, model_size: str = "default")
         if c.engine == engine and c.model_size == model_size:
             cfg = c
             break
+
+    if cfg and cfg.hf_repo_id.startswith("remote://"):
+        return
 
     if engine in ("qwen", "qwen_custom_voice", "tada"):
         if not backend._is_model_cached(model_size):
@@ -639,6 +680,9 @@ def get_model_load_func(config: ModelConfig):
     if config.engine == "qwen_llm":
         return lambda: llm_service.get_llm_model().load_model(config.model_size)
 
+    if config.engine == "remote_tts":
+        return lambda: get_tts_backend_for_engine(config.engine).load_model(config.model_size)
+
     return lambda: get_tts_backend_for_engine(config.engine).load_model()
 
 
@@ -704,6 +748,14 @@ def get_tts_backend_for_engine(engine: str) -> TTSBackend:
             from .kokoro_backend import KokoroTTSBackend
 
             backend = KokoroTTSBackend()
+        elif engine == "remote_tts":
+            from .remote_tts_backend import RemoteOpenAITTSBackend
+
+            backend = RemoteOpenAITTSBackend()
+        elif engine == "remote_tts_clone":
+            from .remote_tts_backend import RemoteOpenAITTSCloneBackend
+
+            backend = RemoteOpenAITTSCloneBackend()
         elif engine == "qwen_custom_voice":
             from .qwen_custom_voice_backend import QwenCustomVoiceBackend
 

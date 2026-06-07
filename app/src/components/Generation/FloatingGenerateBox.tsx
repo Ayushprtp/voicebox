@@ -3,6 +3,7 @@ import { useMatchRoute } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Dices, Loader2, SlidersHorizontal, Sparkles, Wand2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
@@ -54,6 +55,7 @@ export function FloatingGenerateBox({
   const { data: currentStory } = useStory(selectedStoryId);
   const addPendingStoryAdd = useGenerationStore((s) => s.addPendingStoryAdd);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   const composeMutation = useMutation({
     mutationFn: async () => {
@@ -255,20 +257,33 @@ export function FloatingGenerateBox({
     <motion.div
       ref={containerRef}
       className={cn(
-        'fixed',
-        isStoriesRoute
-          ? // Aligned with StoryContent: sidebar + list width + gap (tab bleeds with -mx-8)
-            'left-[calc(5rem+360px+1.5rem)] right-8'
-          : 'left-[calc(5rem+2rem)] right-8 lg:right-auto lg:w-[calc((100%-5rem-4rem)/2-1rem)]',
+        'fixed z-30',
+        // Mobile: full-width bar above the bottom-nav.
+        isMobile && 'left-2 right-2',
+        // Desktop: aligned with the right column, off the sidebar.
+        !isMobile &&
+          (isStoriesRoute
+            ? 'sm:left-[calc(5rem+360px+1.5rem)] sm:right-8'
+            : 'sm:left-[calc(5rem+2rem)] sm:right-8 lg:right-auto lg:w-[calc((100%-5rem-4rem)/2-1rem)]'),
       )}
       style={{
-        // On stories route: offset by track editor height when visible
-        // On other routes: offset by audio player height when visible
-        bottom: hasTrackEditor
-          ? `${trackEditorHeight + 24}px`
-          : isPlayerOpen
-            ? 'calc(7rem + 1.5rem)'
-            : '1.5rem',
+        // Mobile: keep above the bottom-nav (64px) and audio player.
+        // Desktop: anchor by track editor / player height / 1.5rem default.
+        ...(isMobile
+          ? {
+              bottom: hasTrackEditor
+                ? `${trackEditorHeight + 24 + 64}px`
+                : isPlayerOpen
+                  ? 'calc(7rem + 1.5rem + 64px)'
+                  : 'calc(1.5rem + 64px)',
+            }
+          : {
+              bottom: hasTrackEditor
+                ? `${trackEditorHeight + 24}px`
+                : isPlayerOpen
+                  ? 'calc(7rem + 1.5rem)'
+                  : '1.5rem',
+            }),
       }}
     >
       <motion.div
@@ -372,7 +387,7 @@ export function FloatingGenerateBox({
                             form.setValue('text', result.text, { shouldDirty: true });
                             setIsExpanded(true);
                           }}
-                          className="h-10 w-10 rounded-full bg-card border border-border hover:bg-background/50 transition-all duration-200"
+                          className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-card border border-border hover:bg-background/50 transition-all duration-200"
                           aria-label={t('generation.compose.ariaLabel')}
                         >
                           {composeMutation.isPending ? (
@@ -413,7 +428,7 @@ export function FloatingGenerateBox({
                                     size="icon"
                                     onClick={() => field.onChange(!active)}
                                     className={cn(
-                                      'h-10 w-10 rounded-full transition-all duration-200',
+                                      'h-8 w-8 sm:h-10 sm:w-10 rounded-full transition-all duration-200',
                                       active
                                         ? 'bg-accent text-accent-foreground border border-accent hover:bg-accent/90'
                                         : 'bg-card border border-border hover:bg-background/50',
@@ -452,7 +467,7 @@ export function FloatingGenerateBox({
                           size="icon"
                           onClick={() => setIsInstructExpanded((prev) => !prev)}
                           className={cn(
-                            'h-10 w-10 rounded-full transition-all duration-200',
+                            'h-8 w-8 sm:h-10 sm:w-10 rounded-full transition-all duration-200',
                             isInstructExpanded
                               ? 'bg-accent text-accent-foreground border border-accent hover:bg-accent/90'
                               : 'bg-card border border-border hover:bg-background/50',
@@ -478,7 +493,7 @@ export function FloatingGenerateBox({
                   <Button
                     type="submit"
                     disabled={isPending || !selectedProfileId}
-                    className="h-10 w-10 rounded-full bg-accent hover:bg-accent/90 hover:scale-105 text-accent-foreground shadow-lg hover:shadow-accent/50 transition-all duration-200"
+                    className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent hover:bg-accent/90 hover:scale-105 text-accent-foreground shadow-lg hover:shadow-accent/50 transition-all duration-200"
                     size="icon"
                     aria-label={
                       isPending
@@ -545,14 +560,14 @@ export function FloatingGenerateBox({
                 transition={{ duration: 0.3, ease: 'easeOut' }}
                 className=" mt-3"
               >
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                   {showVoiceSelector && (
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <Select
                         value={selectedProfileId || ''}
                         onValueChange={(value) => setSelectedProfileId(value || null)}
                       >
-                        <SelectTrigger className="h-8 text-xs bg-card border-border rounded-full hover:bg-background/50 transition-all w-full">
+                        <SelectTrigger className="h-7 sm:h-8 text-xs bg-card border-border rounded-full hover:bg-background/50 transition-all w-full">
                           <SelectValue placeholder={t('generation.voiceSelector.placeholder')} />
                         </SelectTrigger>
                         <SelectContent>
@@ -575,10 +590,10 @@ export function FloatingGenerateBox({
                         form.watch('engine') || 'qwen',
                       );
                       return (
-                        <FormItem className="flex-1 space-y-0">
+                        <FormItem className="flex-1 min-w-0 space-y-0">
                           <Select onValueChange={field.onChange} value={field.value}>
                             <FormControl>
-                              <SelectTrigger className="h-8 text-xs bg-card border-border rounded-full hover:bg-background/50 transition-all">
+                              <SelectTrigger className="h-7 sm:h-8 text-xs bg-card border-border rounded-full hover:bg-background/50 transition-all w-full">
                                 <SelectValue />
                               </SelectTrigger>
                             </FormControl>
@@ -596,18 +611,18 @@ export function FloatingGenerateBox({
                     }}
                   />
 
-                  <FormItem className="flex-1 space-y-0">
+                  <FormItem className="flex-1 min-w-0 space-y-0">
                     <EngineModelSelector form={form} compact />
                   </FormItem>
 
-                  <FormItem className="flex-1 space-y-0">
+                  <FormItem className="flex-1 min-w-0 space-y-0">
                     <Select
                       value={selectedPresetId || 'none'}
                       onValueChange={(value) =>
                         setSelectedPresetId(value === 'none' ? null : value)
                       }
                     >
-                      <SelectTrigger className="h-8 text-xs bg-card border-border rounded-full hover:bg-background/50 transition-all">
+                      <SelectTrigger className="h-7 sm:h-8 text-xs bg-card border-border rounded-full hover:bg-background/50 transition-all w-full">
                         <SelectValue placeholder={t('generation.effects.none')} />
                       </SelectTrigger>
                       <SelectContent>
