@@ -20,16 +20,16 @@ Docker support makes Voicebox easier to deploy, especially for:
 ```bash
 # CPU-only version
 docker run -p 8000:8000 -v voicebox-data:/app/data \
-  ghcr.io/jamiepine/voicebox:latest
+  ghcr.io/Ayushprtp/voicebox:latest
 
 # NVIDIA GPU version
 docker run --gpus all -p 8000:8000 -v voicebox-data:/app/data \
-  ghcr.io/jamiepine/voicebox:latest-cuda
+  ghcr.io/Ayushprtp/voicebox:latest-cuda
 
 # AMD GPU version (experimental)
 docker run --device=/dev/kfd --device=/dev/dri -p 8000:8000 \
   -v voicebox-data:/app/data \
-  ghcr.io/jamiepine/voicebox:latest-rocm
+  ghcr.io/Ayushprtp/voicebox:latest-rocm
 ```
 
 Then open: `http://localhost:8000`
@@ -43,7 +43,7 @@ version: '3.8'
 
 services:
   voicebox:
-    image: ghcr.io/jamiepine/voicebox:latest-cuda
+    image: ghcr.io/Ayushprtp/voicebox:latest-cuda
     ports:
       - "8000:8000"
     volumes:
@@ -325,7 +325,7 @@ version: '3.8'
 
 services:
   voicebox:
-    image: ghcr.io/jamiepine/voicebox:latest-cuda
+    image: ghcr.io/Ayushprtp/voicebox:latest-cuda
     container_name: voicebox
     restart: unless-stopped
     ports:
@@ -403,7 +403,7 @@ version: '3.8'
 services:
   # Main Voicebox app
   voicebox:
-    image: ghcr.io/jamiepine/voicebox:latest-cuda
+    image: ghcr.io/Ayushprtp/voicebox:latest-cuda
     restart: unless-stopped
     volumes:
       - voicebox-data:/app/data
@@ -468,7 +468,7 @@ volumes:
    docker run --gpus all -d -p 80:8000 \
      -v voicebox-data:/app/data \
      --restart unless-stopped \
-     ghcr.io/jamiepine/voicebox:latest-cuda
+     ghcr.io/Ayushprtp/voicebox:latest-cuda
    ```
 
 ### DigitalOcean
@@ -513,7 +513,7 @@ Create `fly.toml`:
 app = "voicebox"
 
 [build]
-  image = "ghcr.io/jamiepine/voicebox:latest"
+  image = "ghcr.io/Ayushprtp/voicebox:latest"
 
 [[services]]
   http_checks = []
@@ -748,7 +748,7 @@ Help improve Docker support:
 1. Test on different platforms (AMD GPU, ARM64, etc.)
 2. Submit Dockerfile optimizations
 3. Share deployment configurations
-4. Report issues: [GitHub Issues](https://github.com/jamiepine/voicebox/issues)
+4. Report issues: [GitHub Issues](https://github.com/Ayushprtp/voicebox/issues)
 
 ## Resources
 

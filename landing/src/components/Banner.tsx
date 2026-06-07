@@ -12,9 +12,9 @@ export function Banner() {
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
           >
             <span>
-              Also by the creator of Voicebox:{' '}
+              Also by the creator of VoiceBox:{' '}
               <strong className="text-foreground/90">Spacebot</strong>, an AI agent OS for teams.
-              Connect Discord, Slack, or Telegram in one click.
+              Connect Slack, Telegram, or other chat platforms in one click.
             </span>
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </a>

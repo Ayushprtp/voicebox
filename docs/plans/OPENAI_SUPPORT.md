@@ -2,7 +2,7 @@
 
 **Status:** Planned for v0.2.0
 
-**Issue:** [#10 OpenAI API compatibility](https://github.com/jamiepine/voicebox/issues/10)
+**Issue:** [#10 OpenAI API compatibility](https://github.com/Ayushprtp/voicebox/issues/10)
 
 ## Overview
 

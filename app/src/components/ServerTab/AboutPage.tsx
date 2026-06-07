@@ -46,12 +46,12 @@ export function AboutPage() {
       <div className="max-w-md mx-auto h-full flex items-center">
         <div className="flex flex-col items-center text-center space-y-5">
           <FadeIn delay={0}>
-            <img src={voiceboxLogo} alt="Voicebox" className="w-20 h-20 object-contain" />
+            <img src={voiceboxLogo} alt="VoiceBox" className="w-20 h-20 object-contain" />
           </FadeIn>
 
           <FadeIn delay={80}>
             <div className="space-y-1.5">
-              <h1 className="text-lg font-semibold">Voicebox</h1>
+              <h1 className="text-lg font-semibold">VoiceBox</h1>
               <p className="text-xs text-muted-foreground/60 h-4">
                 {version ? `v${version}` : '\u00A0'}
               </p>
@@ -66,14 +66,14 @@ export function AboutPage() {
 
           <FadeIn delay={240}>
             <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <span>{t('settings.about.createdBy')}</span>
+              <span>Backed by</span>
               <a
-                href="https://github.com/jamiepine"
+                href="https://github.com/Ayushprtp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent hover:underline"
               >
-                Jamie Pine
+                Flare Labs
               </a>
             </div>
           </FadeIn>
@@ -81,7 +81,7 @@ export function AboutPage() {
           <FadeIn delay={320}>
             <div className="flex flex-wrap justify-center gap-3 pt-2">
               <a
-                href="https://buymeacoffee.com/jamiepine"
+                href="https://buymeacoffee.com/Ayushprtp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-lg border border-border/60 px-4 py-2 text-sm transition-colors hover:bg-muted/50"
@@ -98,7 +98,7 @@ export function AboutPage() {
                 <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-muted-foreground transition-colors" />
               </a>
               <a
-                href="https://github.com/jamiepine/voicebox"
+                href="https://github.com/Ayushprtp/voicebox"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-lg border border-border/60 px-4 py-2 text-sm transition-colors hover:bg-muted/50"
@@ -155,7 +155,7 @@ export function AboutPage() {
                   link: (
                     // biome-ignore lint/a11y/useAnchorContent: Trans fills content at runtime
                     <a
-                      href="https://github.com/jamiepine/voicebox/blob/main/LICENSE"
+                      href="https://github.com/Ayushprtp/voicebox/blob/main/LICENSE"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-muted-foreground/60 transition-colors"

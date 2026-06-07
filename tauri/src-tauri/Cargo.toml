@@ -55,7 +55,7 @@ tauri-plugin-process = "2.0"
 # Observe-only global keyboard tap. Covers macOS, Windows, and Linux
 # (evdev) with left/right modifier fidelity, which is the hard
 # requirement the chord engine needs. keytap is our own crate
-# (jamiepine/keytap), published to crates.io, that replaces the
+# (Ayushprtp/keytap), published to crates.io, that replaces the
 # abandoned Narsil/rdev we previously pinned via git — same capability
 # surface, clean shutdown via Drop, no `set_is_main_thread(false)`
 # dance required (the Sonoma-crashing layout-translation path simply

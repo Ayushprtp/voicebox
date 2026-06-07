@@ -761,7 +761,6 @@
     },
     "general": {
       "docs": { "title": "ドキュメントを読む" },
-      "discord": { "title": "Discord に参加", "subtitle": "ヘルプやボイスの共有" },
       "serverUrl": {
         "title": "サーバー URL",
         "description": "Voicebox バックエンドサーバーのアドレス。",
