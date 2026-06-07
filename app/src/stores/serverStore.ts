@@ -30,6 +30,14 @@ function invalidateAllServerData() {
 export function getDefaultServerUrl(): string {
   const fallback = 'http://127.0.0.1:2700';
 
+  // Production: a public deploy should always point at the real API,
+  // never at the static web origin (which would return index.html for
+  // /profiles and surface as "Unexpected token <").
+  const apiBase = import.meta.env.VITE_API_BASE_URL;
+  if (apiBase) {
+    return apiBase;
+  }
+
   const envServer = import.meta.env.VITE_SERVER_URL;
   if (envServer) {
     return envServer;
@@ -39,12 +47,10 @@ export function getDefaultServerUrl(): string {
     return fallback;
   }
 
-  const { protocol, origin, hostname } = window.location;
-  if (
-    (protocol === 'http:' || protocol === 'https:') &&
-    origin &&
-    hostname !== 'tauri.localhost'
-  ) {
+  // Last-resort fallback: same-origin. The app's CORS allowlist on the
+  // API must include this origin or the request will fail.
+  const { origin } = window.location;
+  if (origin) {
     return origin;
   }
 
