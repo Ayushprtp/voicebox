@@ -595,7 +595,11 @@ async def create_voice_prompt_for_profile(
             sample.reference_text,
             use_cache=use_cache,
         )
-        voice_prompt["remote_profile_id"] = getattr(profile, "remote_profile_id", None)
+        # Backends may legitimately return either a dict (Chatterbox, LuxTTS,
+        # remote clone) or a list of VoiceClonePromptItem (Qwen PyTorch).
+        # Only attach remote_profile_id when the backend returns a dict.
+        if isinstance(voice_prompt, dict):
+            voice_prompt["remote_profile_id"] = getattr(profile, "remote_profile_id", None)
         return voice_prompt
 
     audio_paths = []

@@ -169,6 +169,11 @@ class PyTorchTTSBackend:
                     # Legacy cache format - convert to dict
                     # This shouldn't happen in practice, but handle it
                     return {"prompt": cached_prompt}, True
+                elif isinstance(cached_prompt, list):
+                    # Cached list of VoiceClonePromptItem is a valid shape —
+                    # return it as-is so Qwen's `generate_voice_clone` can
+                    # build both the prompt dict and the ref_ids from it.
+                    return cached_prompt, True
 
         def _create_prompt_sync():
             """Run synchronous voice prompt creation in thread pool."""
