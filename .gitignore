@@ -68,3 +68,21 @@ temp/
 backend/tests/results/
 backend/tests/fixtures/reference_voice.wav
 backend/tests/fixtures/reference_voice.txt
+
+# Claude Code local state — never commit
+.claude/settings.json
+.claude/history.jsonl
+.claude/file-history/
+.claude/backups/
+.claude/cache/
+.claude/session-env/
+.claude/ide/
+.claude/paste-cache/
+.claude/plugins/
+.claude/tasks/
+.claude/plans/
+.claude/shell-snapshots/
+.claude/.last-cleanup
+.claude/.last-update-result.json
+**/.claude/settings.json
+**/.claude/history.jsonl
