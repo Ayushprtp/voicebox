@@ -582,9 +582,9 @@ export function AudioPlayer() {
             <Repeat className="h-4 w-4" />
           </Button>
 
-          {/* Volume Control */}
+          {/* Volume Control — full-width row on mobile, inline on desktop */}
           <div
-            className="flex items-center gap-2 shrink-0 w-[120px] order-4 sm:order-none"
+            className="flex items-center gap-2 shrink-0 w-full sm:w-[120px] order-4 sm:order-none px-1 sm:px-0"
             role="group"
             aria-label="Volume"
           >
